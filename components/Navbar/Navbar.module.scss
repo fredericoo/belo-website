@@ -1,0 +1,140 @@
+@import "styles/abstracts/mixins";
+
+.navbar {
+	position: sticky;
+	top: 0px;
+	z-index: 100;
+	display: flex;
+	border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+	background: var(--colour__bg);
+}
+
+.toggler {
+	flex: 1 1 0px;
+	align-self: center;
+	@include responsive($tablet-p) {
+		display: none;
+	}
+}
+
+.togglerIcon {
+	display: block;
+	height: 1rem;
+	width: 1.25rem;
+	position: relative;
+	span {
+		--barHeight: 2px;
+		top: calc(50% - (var(--barHeight) / 2));
+		&,
+		&:before,
+		&:after {
+			display: block;
+			height: var(--barHeight);
+			width: 100%;
+			background: var(--colour__main);
+			transition: 0.3s transform var(--easing), 0.3s top var(--easing) 0.15s;
+			position: absolute;
+		}
+		&:before,
+		&:after {
+			content: "";
+			left: 0;
+			transform-origin: center;
+		}
+		&:before {
+			top: -0.4rem;
+		}
+		&:after {
+			top: 0.4rem;
+		}
+	}
+
+	&.open {
+		span {
+			transform: rotate(-45deg);
+			&,
+			&:before,
+			&:after {
+				transition: 0.3s transform var(--easing) 0.15s, 0.3s top var(--easing);
+			}
+			&:before {
+				top: 0;
+				transform: rotate(90deg);
+			}
+			&:after {
+				top: 0;
+			}
+		}
+	}
+}
+
+.menu {
+	z-index: -1;
+	position: absolute;
+	display: flex;
+	flex-direction: column;
+	background: #f0f0f0;
+	left: 0;
+	top: 0;
+	height: 100vh;
+	width: min(300px, 100%);
+	padding-top: 3rem;
+	transform: translateX(-100%);
+	transition: transform 0.6s var(--easing);
+	&.open {
+		transform: translateX(0%);
+	}
+
+	@include responsive($tablet-p) {
+		transform: none;
+		height: initial;
+		width: initial;
+		padding-top: initial;
+		background: transparent;
+		position: static;
+		flex-grow: 1;
+		align-self: stretch;
+		flex-direction: row;
+	}
+	.item {
+		display: block;
+		padding: 0.618em 1em;
+		opacity: 0.5;
+		&.active {
+			opacity: 1;
+		}
+		@include on-event {
+			opacity: 1;
+			text-decoration: none;
+		}
+	}
+}
+
+.tools {
+	display: flex;
+	flex: 1 1 0px;
+	@include responsive($tablet-p) {
+		flex: initial;
+	}
+}
+
+.login {
+	align-self: center;
+	margin: -1px 0;
+}
+
+.logo {
+	height: 1.5rem;
+	display: flex;
+	align-self: center;
+	flex: 1 1 0px;
+	@include responsive($tablet-p) {
+		flex: initial;
+		margin-right: var(--gutter);
+	}
+
+	img {
+		height: 100%;
+		width: 100%;
+	}
+}

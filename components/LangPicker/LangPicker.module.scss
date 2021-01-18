@@ -1,0 +1,19 @@
+@import "styles/abstracts/mixins";
+
+.locales {
+	display: flex;
+	align-items: center;
+	margin-right: var(--gutter);
+	.locale {
+		display: block;
+		opacity: 0.3;
+		padding: 0.618em 0.309em;
+		&.active {
+			opacity: 1;
+		}
+		@include on-event {
+			opacity: 1;
+			text-decoration: none;
+		}
+	}
+}

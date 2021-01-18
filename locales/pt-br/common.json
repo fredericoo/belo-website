@@ -1,0 +1,18 @@
+{
+	"title": "Belo Investment Research",
+	"menu": {
+		"home": "Home",
+		"about": "Sobre",
+		"team": "Equipe",
+		"articles": "Artigos",
+		"contact": "Contato"
+	},
+	"locales": {
+		"pt-br": "PT",
+		"en-us": "EN"
+	},
+	"login": "Log in",
+	"articles": "Artigos",
+	"news": "Notícias",
+	"loadMore": "Carregar mais"
+}

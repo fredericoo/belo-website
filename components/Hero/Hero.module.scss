@@ -1,0 +1,43 @@
+@import "styles/abstracts/mixins";
+
+.section {
+	min-height: 80vh;
+}
+
+.canvas {
+	grid-row: 1 / 3;
+	grid-column: screen-start / screen-end;
+	width: 100%;
+	height: 100%;
+}
+
+.overlay {
+	grid-row: 1 / 3;
+	grid-column: screen-start / screen-end;
+	height: 100%;
+	width: 100%;
+	background-image: url("/img/antimatter-pattern.png");
+	background-size: 12px;
+}
+
+.heading {
+	grid-row: 1;
+	align-self: end;
+	grid-column: grid-end / grid-start;
+	padding: var(--gutter);
+	@include responsive($tablet-p) {
+		grid-column: grid-start / col-7;
+		padding: 0;
+	}
+}
+
+.box {
+	background: var(--colour__bg);
+	align-self: start;
+	padding: var(--gutter);
+	grid-row: 2;
+	grid-column: grid-end / grid-start;
+	@include responsive($tablet-p) {
+		grid-column: grid-end / col-7;
+	}
+}

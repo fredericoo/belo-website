@@ -1,0 +1,21 @@
+@import "styles/abstracts/mixins";
+
+.section {
+	margin: 3rem 0;
+	.heading {
+		border-top: 1px solid;
+		margin-bottom: var(--leading);
+	}
+
+	.articles {
+		overflow: hidden;
+		grid-auto-flow: dense;
+	}
+
+	.loadMore {
+		margin-top: 3rem;
+		width: 100%;
+		display: flex;
+		justify-content: center;
+	}
+}

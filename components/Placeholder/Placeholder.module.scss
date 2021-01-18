@@ -1,0 +1,15 @@
+.placeholder {
+	transition: background-color 1s ease-out;
+	background-color: #f0f0f0;
+	&.loaded {
+		background-color: transparent;
+	}
+}
+
+.image {
+	transition: opacity 1s ease-out;
+	opacity: 0;
+	&.loaded {
+		opacity: 1;
+	}
+}
