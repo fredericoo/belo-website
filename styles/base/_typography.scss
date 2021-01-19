@@ -48,6 +48,13 @@ body {
 		@extend .s-md;
 		@extend .f-heading;
 	}
+	&-div {
+		user-select: none;
+		pointer-events: none;
+		@extend .h-4;
+		border-top: 1px solid;
+		margin-bottom: var(--leading);
+	}
 }
 
 .s {

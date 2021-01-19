@@ -60,7 +60,7 @@ const Hero = () => {
 			></canvas>
 			<div className={styles.overlay}></div>
 			<h1 className={`h-1 ${styles.heading}`}>
-				Lorem ipsum dolor sit amet consequequitur.
+				Extracting valuable information from the big data.
 			</h1>
 			<div className={`body ${styles.box}`}>
 				<p>

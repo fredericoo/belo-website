@@ -14,5 +14,6 @@
 	"login": "Log in",
 	"articles": "Artigos",
 	"news": "Notícias",
-	"loadMore": "Carregar mais"
+	"loadMore": "Carregar mais",
+	"toggleMenu": "Abre ou fecha o menu."
 }

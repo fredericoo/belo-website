@@ -28,7 +28,7 @@ const News = () => {
 
 	return (
 		<section className={`container ${styles.section}`}>
-			<h2 className={`h-4 ${styles.heading}`}>{t("common:news")}</h2>
+			<h2 className={`h-div`}>{t("common:news")}</h2>
 			<div className={`loop loop--sm ${styles.articles}`}>
 				{posts.slice(0, Math.min(showing, posts.length)).map((post, index) => (
 					<Article

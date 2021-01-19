@@ -20,14 +20,23 @@
 		text-transform: uppercase;
 		letter-spacing: 0.04em;
 		font-size: 0.7rem;
-		padding: 0.618em 1em;
+		padding: 1em 1.618em;
+		@include responsive($tablet-p) {
+			padding: 0.618em 1em;
+		}
 		font-weight: 600;
 	}
 	&--md {
-		padding: 0.618em 1.618em;
+		padding: 1em 1.618em;
+		@include responsive($tablet-p) {
+			padding: 0.618em 1.618em;
+		}
 	}
 	&--lg {
-		padding: 0.618em 1.618em;
+		padding: 1em 1.618em;
+		@include responsive($tablet-p) {
+			padding: 0.618em 1.618em;
+		}
 	}
 }
 

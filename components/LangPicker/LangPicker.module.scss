@@ -3,11 +3,17 @@
 .locales {
 	display: flex;
 	align-items: center;
-	margin-right: var(--gutter);
+	justify-content: flex-end;
+	@include responsive($tablet-p) {
+		margin-right: var(--gutter);
+	}
 	.locale {
 		display: block;
 		opacity: 0.3;
-		padding: 0.618em 0.309em;
+		padding: 1.618rem 1rem;
+		@include responsive($tablet-p) {
+			padding: 0.618em 0.309em;
+		}
 		&.active {
 			opacity: 1;
 		}

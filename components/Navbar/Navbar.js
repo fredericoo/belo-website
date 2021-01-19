@@ -21,41 +21,46 @@ const Navbar = () => {
 
 	return (
 		<nav className={`container ${styles.navbar}`}>
-			<div className={`${styles.toggler}`}>
-				<Button onClick={toggle} size="sm" type="">
-					<div className={`${styles.togglerIcon} ${isOpen ? styles.open : ""}`}>
-						<span></span>
-					</div>
-				</Button>
-			</div>
 			<Link href="/">
 				<a className={styles.logo}>
 					<img src="/logo.svg" />
 				</a>
 			</Link>
-			<ul className={`${styles.menu} ${isOpen ? styles.open : ""}`}>
-				{menu.map(({ label, href }) => (
-					<li key={label}>
-						<Link href={href}>
-							<a
-								className={` ${styles.item} ${
-									asPath === href ? styles.active : ""
-								}`}
-							>
-								{t(`common:menu.${label}`)}
-							</a>
-						</Link>
-					</li>
-				))}
-			</ul>
-			<div className={styles.tools}>
-				<LangPicker />
-				<div className={styles.login}>
-					<Button type="secondary" size="sm" href="/">
-						{t("common:login")}
-					</Button>
+			<div className={styles.viewport}>
+				<div className={`${styles.tools} ${isOpen ? styles.open : ""}`}>
+					<ul className={styles.menu}>
+						{menu.map(({ label, href }) => (
+							<li key={label}>
+								<Link href={href}>
+									<a
+										className={` ${styles.item} ${
+											asPath === href ? styles.active : ""
+										}`}
+									>
+										{t(`common:menu.${label}`)}
+									</a>
+								</Link>
+							</li>
+						))}
+					</ul>
+					<LangPicker />
+					<div className={styles.login}>
+						<Button type="secondary" size="sm" href="/">
+							{t("common:login")}
+						</Button>
+					</div>
 				</div>
 			</div>
+			<button
+				label={t("common:toggleMenu")}
+				className={`${styles.toggler}`}
+				type="button"
+				onClick={toggle}
+			>
+				<div className={`${styles.togglerIcon} ${isOpen ? styles.open : ""}`}>
+					<span></span>
+				</div>
+			</button>
 		</nav>
 	);
 };

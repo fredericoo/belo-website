@@ -14,5 +14,6 @@
 	"login": "Log in",
 	"articles": "Articles",
 	"news": "News",
-	"loadMore": "Load more"
+	"loadMore": "Load more",
+	"toggleMenu": "Toggle the menu."
 }
