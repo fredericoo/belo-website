@@ -2,7 +2,7 @@ import styles from "./Footer.module.scss";
 const Footer = () => (
 	<footer className={`${styles.section} container`}>
 		<h3 className="visually-hidden">Footer</h3>
-		<ul className={`loop s-sm loop--md ${styles.columns}`}>
+		<ul className={`loop s-sm loop--sm ${styles.columns}`}>
 			<li>
 				<h3>Belo Investment Research</h3>
 				R. Ouro Fino 395/701. <br />

@@ -1,0 +1,25 @@
+@import "styles/abstracts/mixins";
+
+.section {
+	grid-column: screen-start / screen-end;
+	margin: calc(var(--leading) * 1) 0;
+}
+
+.image {
+	grid-column: grid-start / grid-end;
+	&.fullWidth {
+		grid-column: screen-start / screen-end;
+	}
+}
+
+.caption {
+	margin-top: 0.5rem;
+	grid-column: grid-start / grid-end;
+	a {
+		border-bottom: 1px solid;
+		@include on-event {
+			text-decoration: none;
+			border-bottom-color: var(--colour__accent);
+		}
+	}
+}

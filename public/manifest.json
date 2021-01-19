@@ -1,0 +1,13 @@
+{
+	"name": "Belo Investment Research",
+	"short_name": "Belo",
+	"icons": [
+		{
+			"src": "favicons/favicon-228.png",
+			"sizes": "228x228"
+		}
+	],
+	"background_color": "#f0f0f0",
+	"theme_color": "#f0f0f0",
+	"display": "fullscreen"
+}

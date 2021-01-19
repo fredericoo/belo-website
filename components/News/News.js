@@ -1,47 +1,53 @@
 import styles from "./News.module.scss";
 import useTranslation from "next-translate/useTranslation";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import Button from "components/Button/Button";
 import Article from "components/Article/Article";
 
-const News = () => {
-	const [posts, setPosts] = useState(new Array(9).fill({}));
-	const [showing, setShowing] = useState(6);
+import moment from "moment";
+import { useRouter } from "next/router";
+import useSWR from "swr";
+import { fetcher } from "utils/fetcher";
+
+const News = ({ perPage = 5, showDivider }) => {
+	const { locale } = useRouter();
+	const { data } = useSWR(
+		JSON.stringify({ docType: "article", locale, filters: { type: "news" } }),
+		fetcher,
+		{
+			revalidateOnFocus: false,
+			revalidateOnMount: true,
+			revalidateOnReconnect: false,
+		}
+	);
+
+	const [showing, setShowing] = useState(perPage);
 	const { t } = useTranslation();
 
-	useEffect(() => {
-		window.setTimeout(() => {
-			fetch("https://jsonplaceholder.typicode.com/posts")
-				.then((response) => response.json())
-				.then((json) => {
-					const postData = json.map((post) => {
-						return { ...post, size: (Math.random() * 1 + 1).toFixed(0) };
-					});
-					setPosts(postData);
-				});
-		}, 600);
-	}, []);
-
 	const loadMore = () => {
-		setShowing(showing + 6);
+		setShowing(showing + perPage);
 	};
+
+	const posts = data || new Array(perPage).fill({});
 
 	return (
 		<section className={`container ${styles.section}`}>
-			<h2 className={`h-div`}>{t("common:news")}</h2>
+			{showDivider && <h2 className={`h-div`}>{t("common:menu.news")}</h2>}
 			<div className={`loop loop--sm ${styles.articles}`}>
-				{posts.slice(0, Math.min(showing, posts.length)).map((post, index) => (
-					<Article
-						key={`post-${index}`}
-						size={index === 0 ? 3 : post.size}
-						title={post.title}
-						source={"Valor Econômico"}
-						lead={post.body}
-						href={post.id && `/${post.id}`}
-						post={post}
-						thumbnail={"https://placehold.it/1200x600"}
-					/>
-				))}
+				{posts &&
+					posts
+						.slice(0, Math.min(showing, posts.length))
+						.map((post, index) => (
+							<Article
+								key={`post-${index}`}
+								title={post.title}
+								size={index === 0 ? 3 : post.thumbnail ? 2 : 1}
+								lead={post.lead}
+								href={post.slug && `/article/${post.slug}`}
+								thumbnail={post.thumbnail}
+								source={moment(post.date).format("ll")}
+							/>
+						))}
 			</div>
 			{posts.length > showing && (
 				<div className={styles.loadMore}>

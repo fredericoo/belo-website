@@ -1,0 +1,46 @@
+@import "styles/abstracts/mixins";
+
+.section {
+	margin: calc(var(--leading) * 1) 0;
+	grid-column: grid-start / grid-end;
+	@include responsive($tablet-p) {
+		grid-column: col-2 / col-12;
+	}
+	@include responsive($tablet-l) {
+		grid-column: col-3 / col-11;
+	}
+
+	p {
+		@include responsive($tablet-p) {
+			font-size: 1.1rem;
+		}
+		@include responsive($desktop) {
+			font-size: 1.2rem;
+		}
+	}
+
+	h1,
+	h2,
+	h3,
+	h4,
+	h5,
+	h6 {
+		margin-top: var(--leading);
+		margin-bottom: var(--leading);
+	}
+
+	& > *:first-child {
+		margin-top: 0;
+	}
+	& > *:last-child {
+		margin-bottom: 0;
+	}
+
+	a {
+		border-bottom: 2px solid var(--colour__accent);
+		@include on-event {
+			text-decoration: none;
+			border-bottom-color: var(--colour__accent);
+		}
+	}
+}

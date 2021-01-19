@@ -15,7 +15,7 @@
 	height: 1rem;
 	display: flex;
 	flex-direction: row;
-	--timer: calc(var(--entries, 5) * 6s);
+	--timer: calc(var(--entries, 5) * 8s);
 	ul {
 		min-width: 150vw;
 		display: flex;

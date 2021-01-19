@@ -1,4 +1,3 @@
-import Navbar from "components/Navbar/Navbar";
 import Head from "next/head";
 import useTranslation from "next-translate/useTranslation";
 

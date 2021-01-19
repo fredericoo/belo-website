@@ -1,19 +1,20 @@
 {
 	"title": "Belo Investment Research",
+	"desc": "Extraímos valor das informações mais adequadas visando a melhor gestão de cada carteira.",
 	"menu": {
 		"home": "Home",
 		"about": "Sobre",
 		"team": "Equipe",
 		"articles": "Artigos",
-		"contact": "Contato"
+		"contact": "Contato",
+		"alternativeData": "Dados Alternativos",
+		"news": "Notícias"
 	},
 	"locales": {
 		"pt-br": "PT",
 		"en-us": "EN"
 	},
 	"login": "Log in",
-	"articles": "Artigos",
-	"news": "Notícias",
 	"loadMore": "Carregar mais",
 	"toggleMenu": "Abre ou fecha o menu."
 }

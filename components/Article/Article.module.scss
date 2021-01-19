@@ -25,6 +25,9 @@
 	.lead {
 		order: 3;
 		opacity: 0.6;
+		p {
+			line-height: 1.3;
+		}
 	}
 
 	&.size {
@@ -66,7 +69,7 @@
 	&:before {
 		content: "";
 		position: absolute;
-		opacity: 0.05;
+		opacity: 0.1;
 		background: var(--colour__main);
 		pointer-events: none;
 	}

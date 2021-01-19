@@ -1,42 +1,54 @@
 import styles from "./Articles.module.scss";
 import useTranslation from "next-translate/useTranslation";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import Button from "components/Button/Button";
 import Article from "components/Article/Article";
 
-const Articles = () => {
-	const [posts, setPosts] = useState(new Array(6).fill({}));
-	const [showing, setShowing] = useState(6);
+import { useRouter } from "next/router";
+import useSWR from "swr";
+import { fetcher } from "utils/fetcher";
+
+const Articles = ({ perPage = 3, showDivider }) => {
+	const { locale } = useRouter();
+	const { data } = useSWR(
+		JSON.stringify({
+			docType: "article",
+			locale,
+			filters: { type: "article" },
+		}),
+		fetcher,
+		{
+			revalidateOnFocus: false,
+			revalidateOnMount: true,
+			revalidateOnReconnect: false,
+		}
+	);
+	const [showing, setShowing] = useState(perPage);
 	const { t } = useTranslation();
 
-	useEffect(() => {
-		window.setTimeout(() => {
-			fetch("https://jsonplaceholder.typicode.com/posts")
-				.then((response) => response.json())
-				.then((json) => {
-					setPosts(json);
-				});
-		}, 600);
-	}, []);
-
 	const loadMore = () => {
-		setShowing(showing + 6);
+		setShowing(showing + perPage);
 	};
+
+	const posts = data || new Array(perPage).fill({});
 
 	return (
 		<section className={`container ${styles.section}`}>
-			<h2 className={`h-div`}>{t("common:articles")}</h2>
+			{showDivider && <h2 className={`h-div`}>{t("common:menu.articles")}</h2>}
 			<div className={`loop loop--md ${styles.articles}`}>
-				{posts.slice(0, Math.min(showing, posts.length)).map((post, index) => (
-					<Article
-						key={`post-${index}`}
-						title={post.title}
-						source={"Valor Econômico"}
-						lead={post.body}
-						href={post.id && `/${post.id}`}
-						post={post}
-					/>
-				))}
+				{posts &&
+					posts.slice(0, Math.min(showing, posts.length)).map((post, index) => {
+						return (
+							<Article
+								key={`post-${index}`}
+								title={post.title}
+								size={2}
+								lead={post.lead}
+								href={post.slug && `/article/${post.slug}`}
+								thumbnail={post.thumbnail}
+							/>
+						);
+					})}
 			</div>
 			{posts.length > showing && (
 				<div className={styles.loadMore}>

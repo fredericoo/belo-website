@@ -3,7 +3,7 @@ import styles from "./Ticker.module.scss";
 const TickerEntry = ({ entry }) => {
 	const positive = entry.value > 0;
 	return (
-		<li className={`s-sm ${styles.entry} ${positive && styles.positive}`}>
+		<li className={`s-xs ${styles.entry} ${positive && styles.positive}`}>
 			<div className={`${styles.label}`}>{entry.label}</div>
 			<div className={`${styles.marketPrice}`}>{entry.marketPrice}</div>
 			<div className={styles.arrow}></div>

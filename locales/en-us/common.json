@@ -1,19 +1,20 @@
 {
 	"title": "Belo Investment Research",
+	"desc": "Extracting value from the most adequate information towards a better portfolio management.",
 	"menu": {
 		"home": "Home",
 		"about": "About",
 		"team": "Team",
 		"articles": "Articles",
-		"contact": "Contact"
+		"contact": "Contact",
+		"alternativeData": "Alternative Data",
+		"news": "News"
 	},
 	"locales": {
 		"pt-br": "PT",
 		"en-us": "EN"
 	},
 	"login": "Log in",
-	"articles": "Articles",
-	"news": "News",
 	"loadMore": "Load more",
 	"toggleMenu": "Toggle the menu."
 }

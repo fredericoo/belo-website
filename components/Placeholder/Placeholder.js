@@ -10,6 +10,7 @@ export default function Placeholder(props) {
 				objectFit="cover"
 				className={`${styles.image} ${loaded ? styles.loaded : ""}`}
 				{...props}
+				src={props.src.replace("auto=compress,format", "")}
 				onLoad={() => setLoaded(true)}
 			/>
 		</div>
