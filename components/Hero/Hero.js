@@ -60,7 +60,8 @@ const Hero = () => {
 			></canvas>
 			<div className={styles.overlay}></div>
 			<h1 className={`h-1 ${styles.heading}`}>
-				Extracting valuable information from the big data.
+				Extraímos valor das informações mais adequadas visando a melhor gestão
+				de cada carteira.
 			</h1>
 			<div className={`body ${styles.box}`}>
 				<p>
