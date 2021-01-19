@@ -7,7 +7,7 @@ const Article = ({ href, title, source, lead, thumbnail, size }) => {
 		size ? styles[`size-${size}`] : ""
 	}`;
 	const headingClass = `${size && size < 3 ? "h-4" : "h-3"} ${styles.title}`;
-	const sourceClass = `${styles.source} s-sm`;
+	const sourceClass = `smcp ${styles.source} s-sm`;
 	const leadClass = styles.lead;
 
 	if (href)
@@ -15,11 +15,14 @@ const Article = ({ href, title, source, lead, thumbnail, size }) => {
 			<Link href={href}>
 				<a className={articleClass}>
 					{thumbnail && size >= 2 && (
-						<Placeholder
-							src={thumbnail}
-							height={600}
-							width={size >= 3 ? 1280 : 600}
-						/>
+						<div className={styles.thumbnail}>
+							<Placeholder
+								src={thumbnail}
+								height={600}
+								width={size >= 3 ? 1280 : 600}
+								layout="responsive"
+							/>
+						</div>
 					)}
 					<h3 className={headingClass}>{title}</h3>
 					<h4 className={sourceClass}>{source}</h4>

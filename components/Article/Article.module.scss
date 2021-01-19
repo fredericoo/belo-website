@@ -4,11 +4,18 @@
 	position: relative;
 	display: flex;
 	flex-direction: column;
+	padding: 8px;
+	@include responsive($tablet-p) {
+		padding: 0;
+	}
 
 	.source {
 		order: 1;
 		opacity: 0.6;
 		font-weight: 300;
+	}
+	.thumbnail {
+		margin-bottom: 0.5rem;
 	}
 	.title {
 		order: 2;
