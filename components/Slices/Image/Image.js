@@ -15,11 +15,9 @@ const Image = ({ primary }) => (
 					width={primary.image.dimensions.width}
 					height={primary.image.dimensions.height}
 					layout="responsive"
-					sizes="320px,
-						(max-width: 768px) 640px,
-						(max-width: 1920px) 1366px,
-						1920px"
-					quality={100}
+					sizes="(max-width: 768px) 300px,
+						(max-width: 1366px) 600px,
+						800px"
 				/>
 			</div>
 		)}

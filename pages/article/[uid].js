@@ -65,6 +65,10 @@ export default function Post({ doc }) {
 									height={article.thumbnail.dimensions.height}
 									width={article.thumbnail.dimensions.width}
 									layout="responsive"
+									sizes="320px,
+										(max-width: 768px) 640px,
+										(max-width: 1920px) 1366px,
+										1920px"
 									alt={article.thumbnail.alt}
 								/>
 							</div>
