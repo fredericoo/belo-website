@@ -28,9 +28,11 @@
 		top: 0;
 		left: 0;
 		&.first {
+			transform: translate(0, 0);
 			animation: animateFirstList var(--timer) linear infinite;
 		}
 		&.second {
+			transform: translate(100%, 0);
 			animation: animateSecondList var(--timer) linear infinite;
 		}
 	}
@@ -79,54 +81,54 @@
 
 @keyframes animateFirstList {
 	0% {
-		transform: translateX(0);
+		transform: translate(0, 0);
 		opacity: 1;
 	}
 	50% {
-		transform: translateX(-100%);
+		transform: translate(-100%, 0);
 		opacity: 1;
 	}
 	50.1% {
-		transform: translateX(-100%);
+		transform: translate(-100%, 0);
 		opacity: 0;
 	}
 	50.2% {
-		transform: translateX(100%);
+		transform: translate(100%, 0);
 		opacity: 0;
 	}
 	50.3% {
-		transform: translateX(100%);
+		transform: translate(100%, 0);
 		opacity: 1;
 	}
 	to {
-		transform: translateX(0);
+		transform: translate(0, 0);
 		opacity: 1;
 	}
 }
 
 @keyframes animateSecondList {
 	0% {
-		transform: translateX(100%);
+		transform: translate(100%, 0);
 		opacity: 1;
 	}
 	50% {
-		transform: translateX(0);
+		transform: translate(0, 0);
 		opacity: 1;
 	}
 	99.7% {
-		transform: translateX(-100%);
+		transform: translate(-100%, 0);
 		opacity: 1;
 	}
 	99.8% {
-		transform: translateX(-100%);
+		transform: translate(-100%, 0);
 		opacity: 0;
 	}
 	99.9% {
-		transform: translateX(100%);
+		transform: translate(100%, 0);
 		opacity: 0;
 	}
 	to {
-		transform: translateX(100%);
+		transform: translate(100%, 0);
 		opacity: 1;
 	}
 }
