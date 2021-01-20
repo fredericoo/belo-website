@@ -18,6 +18,9 @@
 	flex-direction: row;
 	--timer: calc(var(--entries, 5) * 8s);
 	ul {
+		list-style-type: none;
+		margin: 0;
+		padding: 0;
 		min-width: 150vw;
 		display: flex;
 		position: absolute;
