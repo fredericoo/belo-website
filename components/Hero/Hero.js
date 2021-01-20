@@ -1,11 +1,18 @@
 import styles from "./Hero.module.scss";
-import { useRef, useEffect } from "react";
+import { useState, useEffect } from "react";
 import Button from "components/Button/Button";
 
 const Hero = ({ heading }) => {
+	const [isLoaded, setIsLoaded] = useState(false);
+	useEffect(() => {
+		setIsLoaded(true);
+	}, []);
+
 	return (
 		<section className={`grid grid--full ${styles.section}`}>
-			<div className={styles.canvas}></div>
+			<div
+				className={`${styles.canvas} ${isLoaded ? styles.loaded : ""}`}
+			></div>
 			<div className={styles.overlay}></div>
 			<h1 className={`h-1 ${styles.heading}`}>{heading}</h1>
 			<div className={`body body--sans ${styles.box}`}>
