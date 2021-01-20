@@ -21,6 +21,7 @@
 		display: flex;
 		position: absolute;
 		transition: var(--timer) linear;
+		top: 0;
 		&.first {
 			animation: animateFirstList var(--timer) linear infinite;
 		}
