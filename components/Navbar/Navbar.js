@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Link from "next/link";
 import LangPicker from "components/LangPicker/LangPicker";
 import styles from "./Navbar.module.scss";
@@ -11,6 +11,10 @@ const Navbar = () => {
 	const [isOpen, setIsOpen] = useState(false);
 	const toggle = () => setIsOpen(!isOpen);
 	const { t } = useTranslation();
+
+	useEffect(() => {
+		setIsOpen(false);
+	}, [asPath]);
 
 	const menu = [
 		{ label: "about", href: "/about" },
