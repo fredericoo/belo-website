@@ -16,5 +16,7 @@
 	},
 	"login": "Log in",
 	"loadMore": "Carregar mais",
-	"toggleMenu": "Abre ou fecha o menu."
+	"toggleMenu": "Abre ou fecha o menu.",
+	"published": "Publicado",
+	"updated": "Atualizado"
 }

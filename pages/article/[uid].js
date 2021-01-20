@@ -6,10 +6,33 @@ import styles from "./Article.module.scss";
 import Meta from "components/Meta/Meta";
 import Placeholder from "components/Placeholder/Placeholder";
 import Slices from "components/Slices/Slices";
+import moment from "moment";
+import useTranslation from "next-translate/useTranslation";
+
+const ArticleMeta = ({ doc }) => {
+	const { t } = useTranslation();
+	const publishedDates = {
+		first: moment(doc.first_publication_date).format("ll"),
+		last: moment(doc.last_publication_date).format("ll"),
+	};
+	return (
+		<>
+			{t("common:published")} {publishedDates.first}
+			{publishedDates.first !== publishedDates.last && (
+				<span className={styles.notImportant}>
+					{" "}
+					({t("common:updated")} {publishedDates.last})
+				</span>
+			)}
+		</>
+	);
+};
 
 export default function Post({ doc }) {
 	if (doc && doc.data) {
 		const article = doc.data;
+		const Pre = ArticleMeta;
+
 		return (
 			<Layout altLangs={doc.alternate_languages}>
 				<article className={`${styles.article}`}>
@@ -25,23 +48,30 @@ export default function Post({ doc }) {
 								: ""
 						}
 					/>
-					{article.thumbnail && article.thumbnail.url && (
-						<div className={styles.thumbnail}>
-							<Placeholder
-								src={article.thumbnail.url}
-								height={article.thumbnail.dimensions.height}
-								width={article.thumbnail.dimensions.width}
-								layout="responsive"
-								alt={article.thumbnail.alt}
-							/>
+					<header className={"grid grid--full"}>
+						<div className={`${styles.meta} s-sm`}>
+							<Pre doc={doc} />
 						</div>
-					)}
-					<Slices
-						slices={[
-							{ slice_type: "body_text", primary: { text: article.title } },
-							...article.body,
-						]}
-					/>
+						<h1 className={`${styles.title} h-1`}>
+							{RichText.asText(article.title)}
+						</h1>
+						<div className={`${styles.lead} h-3`}>
+							<RichText render={article.lead} />
+						</div>
+						{article.thumbnail && article.thumbnail.url && (
+							<div className={styles.thumbnail}>
+								<Placeholder
+									src={article.thumbnail.url}
+									height={article.thumbnail.dimensions.height}
+									width={article.thumbnail.dimensions.width}
+									layout="responsive"
+									alt={article.thumbnail.alt}
+								/>
+							</div>
+						)}
+					</header>
+
+					<Slices slices={article.body} />
 				</article>
 			</Layout>
 		);

@@ -1,2 +1,32 @@
+@import "styles/abstracts/mixins";
+
 .article {
+	margin: 3rem 0;
+}
+
+.meta,
+.thumbnail,
+.title,
+.lead {
+	grid-column: grid-start / grid-end;
+	@include responsive($tablet-p) {
+		grid-column: col-2 / col-12;
+	}
+	@include responsive($tablet-l) {
+		grid-column: col-3 / col-11;
+	}
+}
+
+.meta {
+	opacity: 0.6;
+}
+
+.title,
+.lead {
+	margin-bottom: var(--leading);
+}
+
+.notImportant {
+	opacity: 0.5;
+	font-style: italic;
 }

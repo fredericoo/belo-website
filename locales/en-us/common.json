@@ -16,5 +16,7 @@
 	},
 	"login": "Log in",
 	"loadMore": "Load more",
-	"toggleMenu": "Toggle the menu."
+	"toggleMenu": "Toggle the menu.",
+	"published": "Published",
+	"updated": "Updated"
 }

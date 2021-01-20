@@ -10,7 +10,7 @@ const Article = ({ href, title, source, lead, thumbnail, size }) => {
 	const headingClass = `${
 		size && size < 3 ? "h-4" : thumbnail && thumbnail.url ? "h-3" : "h-2"
 	} ${styles.title}`;
-	const sourceClass = `${styles.source} s-sm`;
+	const sourceClass = `smcp ${styles.source} s-sm`;
 	const leadClass = `body s-sm ${styles.lead}`;
 
 	if (href)
