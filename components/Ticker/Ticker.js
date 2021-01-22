@@ -12,7 +12,7 @@ const TickerEntry = ({ entry }) => {
 				<div className={`${styles.price}`}>{entry.price}</div>
 				<div className={styles.arrow}></div>
 				<div className={`${styles.value}`}>
-					{entry.change}&emsp;{entry.changesPercentage}
+					{entry.change}&emsp;{entry.changesPercentage}%
 				</div>
 			</li>
 		);

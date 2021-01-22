@@ -1,7 +1,15 @@
 async function market(req, res) {
 	const apiKey = process.env.FMP_KEY;
 
-	const symbols = ["^DJI", "^GSPC", "^IXIC"];
+	const symbols = [
+		"^BVSP",
+		"^DJI",
+		"^IXIC",
+		"^US500",
+		"^GDAXI",
+		"^FTSE",
+		"^STOXX50E",
+	];
 	await fetch(
 		`https://financialmodelingprep.com/api/v3/quote/${symbols}?apikey=${apiKey}`
 	)
