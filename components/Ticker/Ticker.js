@@ -3,32 +3,46 @@ import { useState, useEffect } from "react";
 import { useRouter } from "next/router";
 
 const TickerEntry = ({ entry }) => {
-	const positive = entry.change > 0;
+	if (entry.symbol) {
+		const direction =
+			entry.change > 0 ? "positive" : entry.change < 0 ? "negative" : "neutral";
+		return (
+			<li className={`s-xs ${styles.entry} ${styles[direction]}`}>
+				<div className={`${styles.label}`}>{entry.name}</div>
+				<div className={`${styles.price}`}>{entry.price}</div>
+				<div className={styles.arrow}></div>
+				<div className={`${styles.value}`}>
+					{entry.change}&emsp;{entry.changesPercentage}
+				</div>
+			</li>
+		);
+	}
 	return (
-		<li className={`s-xs ${styles.entry} ${positive && styles.positive}`}>
-			<div className={`${styles.label}`}>{entry.symbol}</div>
-			<div className={`${styles.marketPrice}`}>{entry.price}</div>
+		<li className={`s-xs ${styles.entry} ${styles.skeleton}`}>
+			<div className={`${styles.label}`}>Stock Label</div>
+			<div className={`${styles.price}`}>123.456</div>
 			<div className={styles.arrow}></div>
-			<div className={`${styles.value}`}>
-				{entry.change}&emsp;{entry.changePercent}
-			</div>
+			<div className={`${styles.value}`}>1.2345&emsp;1.2345%</div>
 		</li>
 	);
 };
 
 const Ticker = ({}) => {
-	const [data, setData] = useState([]);
+	const [data, setData] = useState(new Array(5).fill({}));
 	useEffect(() => {
 		fetch("/api/market")
 			.then((res) => res.json())
 			.then((data) => {
-				if (data.stocks) setData(data.stocks);
+				if (data.stocks.length) setData(data.stocks);
 			});
 	}, []);
 
 	return (
 		<aside className={styles.ticker}>
-			<div className={styles.viewport} style={{ "--entries": data.length }}>
+			<div
+				className={styles.viewport}
+				style={{ "--entries": data.length || 5 }}
+			>
 				<ul className={styles.first}>
 					{data.length &&
 						data.map((entry, index) => (
