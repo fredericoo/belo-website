@@ -1,21 +1,23 @@
 import moment from "moment";
 
 async function fetchFromSource(source) {
+	const iconv = require("iconv-lite");
 	const parser = require("fast-xml-parser");
 	let response = [];
-	await fetch(source.feed, {
-		headers: {
-			"Content-type": `text/xml; encoding="UTF-8"`,
-		},
-	})
-		.then((response) => response.text())
+	await fetch(source.feed)
+		.then((res) => res.arrayBuffer())
+		.then((arrayBuffer) =>
+			iconv
+				.decode(new Buffer(arrayBuffer), source.encoding || "UTF-8")
+				.toString()
+		)
 		.then((response) => parser.parse(response))
 		.then((data) => {
 			data.rss.channel.item.forEach((article) => {
 				response.push({
 					source: source.name,
 					date: article.pubDate,
-					title: Buffer.from(article.title, "latin1").toString(),
+					title: article.title,
 					link: article.link,
 					description: article.description,
 				});
@@ -37,6 +39,7 @@ async function rssfeeds(req, res) {
 			{
 				name: "Folha Mercado",
 				feed: "https://feeds.folha.uol.com.br/mercado/rss091.xml",
+				encoding: "ISO-8859-1",
 			},
 		],
 		"en-us": [
