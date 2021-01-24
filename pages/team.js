@@ -17,6 +17,7 @@ export default function Page({ docs }) {
 						position: doc.data.position,
 						photo: doc.data.photo,
 						bio: doc.data.bio,
+						priority: doc.data.priority,
 					};
 				})}
 			/>

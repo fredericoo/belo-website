@@ -38,6 +38,7 @@ export default function Page({ team, about }) {
 								position: doc.data.position,
 								photo: doc.data.photo,
 								bio: doc.data.bio,
+								priority: doc.data.priority,
 							};
 						})}
 					/>

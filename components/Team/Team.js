@@ -4,15 +4,17 @@ import useTranslation from "next-translate/useTranslation";
 
 const Team = ({ members }) => {
 	const { t } = useTranslation();
+	console.log(members);
 	return (
 		<section className={`${styles.section} container`}>
 			<h2 className={`${styles.heading} h-1`}>{t("common:menu.team")}</h2>
 			<div className={`${styles.members} loop loop--sm`}>
 				{members &&
 					members
-						.sort((a, b) => (a.uid > b.uid ? 1 : -1))
+						.sort((a, b) => +b.priority - +a.priority)
 						.map((member) => (
 							<TeamMember
+								priority={member.priority}
 								key={member.uid}
 								name={member.name}
 								position={member.position}
