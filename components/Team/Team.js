@@ -4,7 +4,6 @@ import useTranslation from "next-translate/useTranslation";
 
 const Team = ({ members }) => {
 	const { t } = useTranslation();
-	console.log(members);
 	return (
 		<section className={`${styles.section} container`}>
 			<h2 className={`${styles.heading} h-1`}>{t("common:menu.team")}</h2>

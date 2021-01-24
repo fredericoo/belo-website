@@ -17,6 +17,7 @@ const TeamMember = ({ name, position, photo, bio }) => {
 						(max-width: 768px) 300px,
 						(max-width: 1920px) 600px,
 						600px"
+						unoptimized
 					/>
 				)}
 			</div>
