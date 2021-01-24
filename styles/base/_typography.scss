@@ -80,7 +80,7 @@ body {
 	}
 	&-xxl {
 		font-size: calc(
-			60px + (100vw - ((100vw - 850px) / 6 + 15px) * 2 - 1600px) * 0.0005 * 60
+			72px + (100vw - ((100vw - 850px) / 6 + 15px) * 2 - 1600px) * 0.0005 * 72
 		);
 		letter-spacing: -0.04em;
 	}
