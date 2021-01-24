@@ -5,8 +5,4 @@
 	padding-top: var(--gutter);
 	padding-bottom: var(--gutter);
 	line-height: 1.6;
-	text-align: center;
-	@include responsive($tablet-p) {
-		text-align: left;
-	}
 }
