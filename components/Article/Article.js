@@ -28,10 +28,16 @@ const Article = ({ href, title, source, lead, thumbnail, size }) => {
 							/>
 						</div>
 					)}
-					<h3 className={headingClass}>{RichText.asText(title)}</h3>
+					<h3 className={headingClass}>
+						{typeof title === "object" ? RichText.asText(title) : title}
+					</h3>
 					<h4 className={sourceClass}>{source}</h4>
 					<div className={leadClass}>
-						<RichText render={lead} />
+						{typeof lead === "object" ? (
+							<RichText render={lead} />
+						) : (
+							<p>{lead}</p>
+						)}
 					</div>
 				</a>
 			</Link>
