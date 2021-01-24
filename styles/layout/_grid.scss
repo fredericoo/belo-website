@@ -26,14 +26,26 @@
 	row-gap: var(--gutter);
 
 	&--sm {
-		grid-template-columns: repeat(auto-fill, minmax(min(230px, 100%), 1fr));
+		grid-template-columns: 1fr 1fr;
+		@include responsive($tablet-p) {
+			grid-template-columns: 1fr 1fr 1fr;
+		}
+		@include responsive($tablet-l) {
+			grid-template-columns: 1fr 1fr 1fr 1fr;
+		}
 	}
 
 	&--md {
-		grid-template-columns: repeat(auto-fill, minmax(min(300px, 100%), 1fr));
+		grid-template-columns: 1fr;
+		@include responsive($tablet-p) {
+			grid-template-columns: 1fr 1fr;
+		}
 	}
 
 	&--lg {
-		grid-template-columns: repeat(auto-fill, minmax(min(400px, 100%), 1fr));
+		grid-template-columns: 1fr;
+		@include responsive($tablet-p) {
+			grid-template-columns: 1fr 1fr;
+		}
 	}
 }
