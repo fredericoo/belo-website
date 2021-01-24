@@ -7,6 +7,7 @@ import { queryRepeatableDocuments } from "utils/queries";
 import Team from "components/Team/Team";
 import { RichText } from "prismic-reactjs";
 import { Fragment } from "react";
+import Placeholder from "components/Placeholder/Placeholder";
 
 export default function Page({ team, about }) {
 	const { t } = useTranslation();
@@ -28,6 +29,17 @@ export default function Page({ team, about }) {
 					<div className={`${styles.how}`}>
 						<RichText render={about.data.about} />
 					</div>
+					{about.data.image && (
+						<div className={styles.image}>
+							<Placeholder
+								src={about.data.image.url}
+								width={about.data.image.dimensions.width}
+								height={about.data.image.dimensions.height}
+								quality={100}
+								objectFit="cover"
+							/>
+						</div>
+					)}
 				</section>
 				<section className={`${styles.section}`}>
 					<Team
