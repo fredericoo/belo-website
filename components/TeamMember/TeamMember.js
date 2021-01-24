@@ -5,7 +5,7 @@ import { RichText } from "prismic-reactjs";
 const TeamMember = ({ name, position, photo, bio }) => {
 	console.log(photo);
 	return (
-		<div className={styles.container}>
+		<div className={`${styles.container} s-sm`}>
 			<div className={styles.photo}>
 				{photo.url && (
 					<Placeholder
@@ -21,11 +21,11 @@ const TeamMember = ({ name, position, photo, bio }) => {
 					/>
 				)}
 			</div>
-			<div className={styles.name}>
+			<div className={`styles.name`}>
 				<RichText render={name} />
 			</div>
 			<div className={styles.position}>{position}</div>
-			<div className={`body s-sm ${styles.bio}`}>
+			<div className={`${styles.bio}`}>
 				<RichText render={bio} />
 			</div>
 		</div>
