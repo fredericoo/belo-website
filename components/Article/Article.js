@@ -10,8 +10,8 @@ const Article = ({ href, title, source, lead, thumbnail, size }) => {
 	const headingClass = `${
 		size && size < 3 ? "h-4" : thumbnail && thumbnail.url ? "h-3" : "h-2"
 	} ${styles.title}`;
-	const sourceClass = `smcp ${styles.source} s-sm`;
-	const leadClass = `body s-sm ${styles.lead}`;
+	const sourceClass = `${styles.source} s-xs`;
+	const leadClass = `s-sm ${styles.lead}`;
 
 	if (href)
 		return (
@@ -29,14 +29,18 @@ const Article = ({ href, title, source, lead, thumbnail, size }) => {
 						</div>
 					)}
 					<h3 className={headingClass}>
-						{typeof title === "object" ? RichText.asText(title) : title}
+						{typeof title === "object" ? (
+							RichText.asText(title)
+						) : (
+							<div dangerouslySetInnerHTML={{ __html: title }} />
+						)}
 					</h3>
 					<h4 className={sourceClass}>{source}</h4>
 					<div className={leadClass}>
 						{typeof lead === "object" ? (
 							<RichText render={lead} />
 						) : (
-							<p>{lead}</p>
+							<p dangerouslySetInnerHTML={{ __html: lead }} />
 						)}
 					</div>
 				</a>
