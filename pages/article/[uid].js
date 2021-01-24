@@ -124,5 +124,5 @@ export async function getStaticProps({ params, locale }) {
 			},
 		};
 	}
-	return { revalidate: 10, props: { doc: {} } };
+	return { revalidate: 60, props: { doc: {} } };
 }
