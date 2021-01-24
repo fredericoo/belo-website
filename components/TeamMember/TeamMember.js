@@ -3,7 +3,6 @@ import styles from "./TeamMember.module.scss";
 import { RichText } from "prismic-reactjs";
 
 const TeamMember = ({ name, position, photo, bio }) => {
-	console.log(photo);
 	return (
 		<div className={`${styles.container} s-sm`}>
 			<div className={styles.photo}>

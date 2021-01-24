@@ -37,7 +37,7 @@
 	.textBlock {
 		grid-column: col-7 / grid-end;
 		@include responsive($tablet-p) {
-			grid-column: col-9 / grid-end;
+			grid-column: col-10 / grid-end;
 		}
 		margin-bottom: 3rem;
 		line-height: 1.4;
