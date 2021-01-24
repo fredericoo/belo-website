@@ -13,7 +13,7 @@ export default function Page({ team, about }) {
 	const zeroPad = (num, places) => String(num).padStart(places, "0");
 	if (about) {
 		return (
-			<Layout>
+			<Layout altLangs={about.alternate_languages}>
 				<Meta pageTitle={t("common:menu.about")} pageDesc={""} />
 				<header className={`${styles.header} grid grid--inner`}>
 					<div className={`${styles.established} s-sm`}>
