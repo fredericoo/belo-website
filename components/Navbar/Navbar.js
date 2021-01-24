@@ -6,11 +6,12 @@ import useTranslation from "next-translate/useTranslation";
 import Button from "components/Button/Button";
 import { useRouter } from "next/router";
 
-const Navbar = () => {
-	const { asPath } = useRouter();
+const Navbar = ({ altLangs }) => {
+	const { asPath, locales, locale } = useRouter();
 	const [isOpen, setIsOpen] = useState(false);
 	const toggle = () => setIsOpen(!isOpen);
 	const { t } = useTranslation();
+	const altLocales = altLangs ? altLangs.map((lang) => lang.lang) : locales;
 
 	useEffect(() => {
 		setIsOpen(false);
@@ -49,7 +50,11 @@ const Navbar = () => {
 							</li>
 						))}
 					</ul>
-					<LangPicker />
+					<LangPicker
+						locales={locales.filter(
+							(lang) => lang === locale || altLocales.includes(lang)
+						)}
+					/>
 					<div className={styles.login}>
 						<Button type="secondary" size="sm" href="/">
 							{t("common:login")}
