@@ -20,10 +20,10 @@ export default function Home({ doc }) {
 					cta={doc.data.cta}
 				/>
 			)}
-			<News showDivider />
-			<WorldNews showDivider perPage={8} display={5} />
-			<AltData showDivider />
-			<Articles showDivider />
+			<News display={3} perPage={8} showDivider />
+			<WorldNews display={5} perPage={8} showDivider />
+			<AltData display={2} perPage={4} showDivider />
+			<Articles display={2} perPage={4} showDivider />
 		</Layout>
 	);
 }
