@@ -4,7 +4,7 @@ import CookieConsent from "components/CookieConsent/CookieConsent";
 
 const App = ({ Component, pageProps }) => (
 	<>
-		<CookieConsent debug />
+		<CookieConsent />
 		<Navbar altLangs={pageProps.altLangs} />
 		<Component {...pageProps} />
 	</>
