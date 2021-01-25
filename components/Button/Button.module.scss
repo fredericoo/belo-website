@@ -69,6 +69,11 @@
 		}
 	}
 
+	&--primary {
+		background: var(--colour__main);
+		color: var(--colour__bg);
+	}
+
 	&--secondary {
 		position: relative;
 		display: flex;
