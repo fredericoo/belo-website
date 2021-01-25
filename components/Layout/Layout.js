@@ -8,7 +8,7 @@ export const Layout = ({ children, altLangs }) => {
 	const [_, setAltLangs] = useContext(AvailableLocalesContext);
 	useEffect(() => {
 		altLangs ? setAltLangs(altLangs) : setAltLangs(undefined);
-	}, []);
+	}, [children]);
 
 	return (
 		<>
