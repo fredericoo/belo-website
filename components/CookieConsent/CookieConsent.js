@@ -19,10 +19,10 @@ const CookieInfo = ({ onReject }) => (
 		<p>Google Analytics stores information about:</p>
 		<ul>
 			<li>how you got to the site;</li>
-			<li>the pages you visit on GOV.UK and how long you spend on them;</li>
+			<li>the pages you visit on belo.re and how long you spend on them;</li>
 			<li>what you click on while you’re visiting the site</li>
 		</ul>
-		<p>Google Analytics sets the following cookies.</p>
+		<p>Google Analytics sets the following cookies:</p>
 		<table>
 			<thead>
 				<tr>
