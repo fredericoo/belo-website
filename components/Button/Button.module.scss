@@ -42,11 +42,10 @@
 
 .type {
 	&--arrow {
-		font-weight: 600;
 		padding: 4px 0;
 		position: relative;
 		&:after {
-			content: " →";
+			content: " ↗";
 			transition: color 0.6s var(--easing);
 		}
 		&:before {
@@ -64,6 +63,33 @@
 				color: var(--colour__accent);
 			}
 			&:before {
+				width: 100%;
+			}
+		}
+	}
+
+	&--arrowBack {
+		padding: 4px 0;
+		position: relative;
+		&:before {
+			content: "↙ ";
+			transition: color 0.6s var(--easing);
+		}
+		&:after {
+			content: "";
+			position: absolute;
+			width: 0;
+			height: 1px;
+			background-color: var(--colour__accent);
+			bottom: 1px;
+			left: 0;
+			transition: width 0.6s var(--easing);
+		}
+		@include on-event {
+			&:before {
+				color: var(--colour__accent);
+			}
+			&:after {
 				width: 100%;
 			}
 		}
