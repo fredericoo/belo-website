@@ -23,7 +23,7 @@
 
 .loop {
 	@extend .grid;
-	column-gap: var(--gutter);
+	column-gap: var(--colGap);
 	row-gap: var(--gutter);
 
 	&--sm {
