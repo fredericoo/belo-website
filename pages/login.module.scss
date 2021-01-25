@@ -1,0 +1,41 @@
+.viewport {
+	display: flex;
+	flex-direction: column;
+	height: 100vh;
+	width: 100vw;
+	background: #f0f0f0;
+	align-items: center;
+	justify-content: center;
+}
+
+.form {
+	width: 100%;
+	max-width: 400px;
+	background: var(--colour__bg);
+	display: flex;
+	flex-direction: column;
+	padding: var(--colGap);
+
+	label {
+		opacity: 0.8;
+	}
+	input {
+		border: 1px solid rgba(0, 0, 0, 0.1);
+		padding: 8px;
+		margin-bottom: 1rem;
+	}
+}
+
+.footer,
+.header {
+	width: 100%;
+	max-width: 400px;
+	padding: 1rem 0;
+}
+.header {
+	text-align: center;
+}
+
+.error {
+	color: var(--colour__negative4);
+}
