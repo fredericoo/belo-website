@@ -21,7 +21,7 @@ export default function Home({ doc }) {
 				/>
 			)}
 			<News display={3} perPage={8} showDivider />
-			<WorldNews display={5} perPage={8} showDivider />
+			<WorldNews display={3} perPage={8} showDivider />
 			<AltData display={2} perPage={4} showDivider />
 			<Articles display={2} perPage={4} showDivider />
 		</Layout>
