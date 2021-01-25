@@ -1,8 +1,10 @@
 import "styles/globals.scss";
 import Navbar from "components/Navbar/Navbar";
+import CookieConsent from "components/CookieConsent/CookieConsent";
 
 const App = ({ Component, pageProps }) => (
 	<>
+		<CookieConsent debug />
 		<Navbar altLangs={pageProps.altLangs} />
 		<Component {...pageProps} />
 	</>
