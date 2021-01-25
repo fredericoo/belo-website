@@ -15,7 +15,10 @@ export default function Page({ team, about }) {
 	if (about) {
 		return (
 			<Layout altLangs={about.alternate_languages}>
-				<Meta pageTitle={t("common:menu.about")} pageDesc={""} />
+				<Meta
+					pageTitle={t("common:menu.about")}
+					pageDesc={RichText.asText(about.data.about)}
+				/>
 				<header className={`${styles.header} grid grid--inner`}>
 					<div className={`${styles.established} s-sm`}>
 						{about.data.established}
