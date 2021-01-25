@@ -18,7 +18,7 @@ const Hero = ({ heading, about, cta }) => {
 			<h1 className={`h-1 ${styles.heading}`}>{RichText.asText(heading)}</h1>
 			<div className={`body body--sans ${styles.box}`}>
 				<RichText render={about} />
-				<Button href="/about" type="arrow">
+				<Button href="/company" type="arrow">
 					{cta}
 				</Button>
 			</div>
