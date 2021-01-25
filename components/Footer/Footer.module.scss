@@ -5,4 +5,8 @@
 	padding-top: var(--gutter);
 	padding-bottom: var(--gutter);
 	line-height: 1.6;
+	margin-bottom: 10vh;
+	@include responsive($tablet-l) {
+		margin-bottom: 0;
+	}
 }
