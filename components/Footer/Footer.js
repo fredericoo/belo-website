@@ -1,5 +1,7 @@
 import styles from "./Footer.module.scss";
 import useTranslation from "next-translate/useTranslation";
+import Link from "next/link";
+
 const Footer = () => {
 	const { t } = useTranslation();
 
@@ -13,9 +15,13 @@ const Footer = () => {
 					Belo Horizonte MG, Brazil
 				</li>
 				<li>
-					<h3>{t("common:menu.contact")}</h3>
-					<p>belo@belo.re</p>
-					<p>+1 646 662 9 863</p>
+					<h3>Links</h3>
+					<p>
+						<Link href="/company">{t("common:menu.about")}</Link>
+					</p>
+					<p>
+						<Link href="/contact">{t("common:menu.contact")}</Link>
+					</p>
 				</li>
 			</ul>
 		</footer>
