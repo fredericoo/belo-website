@@ -1,0 +1,47 @@
+@import "styles/abstracts/mixins";
+
+.section {
+	margin: 3rem 0;
+
+	.image {
+		order: 1;
+		grid-column: grid-start / grid-end;
+		margin-bottom: 2rem;
+		@include responsive($tablet-p) {
+			order: 3;
+			grid-column: col-7 / grid-end;
+		}
+	}
+	.heading {
+		margin-bottom: 3rem;
+		grid-column: grid-start / grid-end;
+		@include responsive($tablet-p) {
+			grid-column: grid-start / col-7;
+		}
+	}
+	.text {
+		margin-top: 1rem;
+		opacity: 0.5;
+	}
+	.subHeading {
+		grid-column: grid-start / col-7;
+		@include responsive($tablet-p) {
+			grid-column: col-7 / col-9;
+		}
+		margin-bottom: 2rem;
+		opacity: 0.5;
+		font-weight: 300;
+	}
+	.textBlock {
+		grid-column: col-7 / grid-end;
+		@include responsive($tablet-p) {
+			grid-column: col-10 / grid-end;
+		}
+		margin-bottom: 2rem;
+		line-height: 1.4;
+		h3 {
+			font-weight: initial;
+			font-size: inherit;
+		}
+	}
+}
