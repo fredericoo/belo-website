@@ -18,8 +18,8 @@ const Navbar = ({ altLangs }) => {
 	}, [asPath]);
 
 	const menu = [
-		{ label: "about", href: "/about" },
-		{ label: "team", href: "/team" },
+		{ label: "about", href: "/company" },
+		// { label: "team", href: "/team" },
 		{ label: "articles", href: "/articles" },
 		{ label: "news", href: "/news" },
 		{ label: "alternativeData", href: "/alt-data" },
