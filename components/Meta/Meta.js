@@ -11,6 +11,7 @@ const Meta = ({ pageTitle, pageDesc, pageType, pageImage }) => {
 			: t("common:title"),
 		desc: pageDesc ? pageDesc : t("common:desc"),
 	};
+	const GA_TRACKING_ID = "G-NXZQEY4YQP";
 	return (
 		<Head>
 			<title>{tabInfo.title}</title>
@@ -90,6 +91,24 @@ const Meta = ({ pageTitle, pageDesc, pageType, pageImage }) => {
 
 			<link rel="icon" href="/favicons/favicon.svg" />
 			<link rel="mask-icon" href="/favicons/favicon.svg" color="#000000" />
+
+			{/* TRACKING */}
+			<script
+				async
+				src="https://www.googletagmanager.com/gtag/js?id=G-NXZQEY4YQP"
+			/>
+			<script
+				dangerouslySetInnerHTML={{
+					__html: `
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', '${GA_TRACKING_ID}', {
+              page_path: window.location.pathname,
+            });
+          `,
+				}}
+			/>
 		</Head>
 	);
 };
