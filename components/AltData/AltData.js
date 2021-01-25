@@ -8,7 +8,7 @@ import { useRouter } from "next/router";
 import useSWR from "swr";
 import { fetcher } from "utils/fetcher";
 
-const Articles = ({ perPage = 3, showDivider }) => {
+const Articles = ({ display = 3, perPage = 3, showDivider }) => {
 	const { locale } = useRouter();
 	const { data } = useSWR(
 		JSON.stringify({
@@ -23,14 +23,14 @@ const Articles = ({ perPage = 3, showDivider }) => {
 			revalidateOnReconnect: false,
 		}
 	);
-	const [showing, setShowing] = useState(perPage);
+	const [showing, setShowing] = useState(display);
 	const { t } = useTranslation();
 
 	const loadMore = () => {
 		setShowing(showing + perPage);
 	};
 
-	const posts = data || new Array(perPage).fill({});
+	const posts = data || new Array(display).fill({});
 
 	return (
 		<section className={`container ${styles.section}`}>

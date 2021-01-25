@@ -9,7 +9,7 @@ import { useRouter } from "next/router";
 import useSWR from "swr";
 import { fetcher } from "utils/fetcher";
 
-const News = ({ perPage = 5, showDivider }) => {
+const News = ({ display = 5, perPage = 5, showDivider }) => {
 	const { locale } = useRouter();
 	const { data } = useSWR(
 		JSON.stringify({ docType: "article", locale, filters: { type: "news" } }),
@@ -21,14 +21,14 @@ const News = ({ perPage = 5, showDivider }) => {
 		}
 	);
 
-	const [showing, setShowing] = useState(perPage);
+	const [showing, setShowing] = useState(display);
 	const { t } = useTranslation();
 
 	const loadMore = () => {
 		setShowing(showing + perPage);
 	};
 
-	const posts = data || new Array(perPage).fill({});
+	const posts = data || new Array(display).fill({});
 
 	return (
 		<section className={`container ${styles.section}`}>
