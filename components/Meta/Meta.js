@@ -88,8 +88,8 @@ const Meta = ({ pageTitle, pageDesc, pageType, pageImage }) => {
 				content="/favicons/favicon-144.png"
 			/>
 
-			<link rel="icon" href="/favicon.svg" />
-			<link rel="mask-icon" href="/favicon.svg" color="#000000" />
+			<link rel="icon" href="/favicons/favicon.svg" />
+			<link rel="mask-icon" href="/favicons/favicon.svg" color="#000000" />
 		</Head>
 	);
 };
