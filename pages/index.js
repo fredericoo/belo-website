@@ -1,7 +1,6 @@
 import Layout from "components/Layout/Layout";
 import Hero from "components/Hero/Hero";
 import Ticker from "components/Ticker/Ticker";
-import Articles from "components/Articles/Articles";
 import News from "components/News/News";
 import WorldNews from "components/WorldNews/WorldNews";
 import AltData from "components/AltData/AltData";
@@ -23,7 +22,6 @@ export default function Home({ doc }) {
 			<News display={3} perPage={8} showDivider />
 			<WorldNews display={3} perPage={8} showDivider />
 			<AltData display={2} perPage={4} showDivider />
-			<Articles display={2} perPage={4} showDivider />
 		</Layout>
 	);
 }
