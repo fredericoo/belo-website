@@ -67,7 +67,7 @@ async function rssfeeds(req, res) {
 				responses
 					.flat()
 					.sort((a, b) => moment(b.date).diff(moment(a.date)))
-					.slice(0, 100)
+					.slice(0, 7)
 			);
 		})
 		.catch(() => {
