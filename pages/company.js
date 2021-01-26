@@ -1,7 +1,7 @@
 import Layout from "components/Layout/Layout";
 import Meta from "components/Meta/Meta";
 import useTranslation from "next-translate/useTranslation";
-import styles from "./about.module.scss";
+import styles from "./company.module.scss";
 import { Client } from "utils/prismicHelpers";
 import { queryRepeatableDocuments } from "utils/queries";
 import Team from "components/Team/Team";
@@ -65,11 +65,10 @@ export default function Page({ team, about }) {
 
 					{about.data.purpose.map((purpose, index) => (
 						<Fragment key={`purpose-${index}`}>
-							<div className={`${styles.subHeading}`}>
-								{zeroPad(index + 1, 2)}
-							</div>
+							<h3 className={`${styles.subHeading}`}>
+								{RichText.asText(purpose.title)}
+							</h3>
 							<div className={styles.textBlock}>
-								<h3>{RichText.asText(purpose.title)}</h3>
 								<RichText render={purpose.text} />
 							</div>
 						</Fragment>
