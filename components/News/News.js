@@ -12,7 +12,11 @@ import { fetcher } from "utils/fetcher";
 const News = ({ display = 5, perPage = 5, showDivider }) => {
 	const { locale } = useRouter();
 	const { data } = useSWR(
-		JSON.stringify({ docType: "article", locale, filters: { type: "news" } }),
+		JSON.stringify({
+			docType: "article",
+			locale,
+			filters: { type: ["news", "article"] },
+		}),
 		fetcher,
 		{
 			revalidateOnFocus: false,
@@ -46,6 +50,7 @@ const News = ({ display = 5, perPage = 5, showDivider }) => {
 								href={post.slug && `/article/${post.slug}`}
 								thumbnail={post.thumbnail}
 								source={moment(post.date).format("ll")}
+								type={post.type}
 							/>
 						))}
 			</div>
