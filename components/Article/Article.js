@@ -3,7 +3,7 @@ import Placeholder from "components/Placeholder/Placeholder";
 import styles from "./Article.module.scss";
 import { RichText } from "prismic-reactjs";
 
-const Article = ({ href, title, source, lead, thumbnail, size }) => {
+const Article = ({ href, title, source, lead, type, thumbnail, size }) => {
 	const articleClass = `${styles.article} ${
 		size ? styles[`size-${size}`] : ""
 	}`;
@@ -35,7 +35,9 @@ const Article = ({ href, title, source, lead, thumbnail, size }) => {
 							<div dangerouslySetInnerHTML={{ __html: title }} />
 						)}
 					</h3>
-					<h4 className={sourceClass}>{source}</h4>
+					<h4 className={sourceClass}>
+						{type && <span className={styles.type}>{type}</span>} {source}
+					</h4>
 					<div className={leadClass}>
 						{typeof lead === "object" ? (
 							<RichText render={lead} />
