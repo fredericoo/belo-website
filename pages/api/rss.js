@@ -52,7 +52,7 @@ async function rssfeeds(req, res) {
 				feed: "https://www.economist.com/finance-and-economics/rss.xml",
 			},
 			{
-				name: "Financial Times",
+				name: "The Wall Street Journal",
 				feed: "https://feeds.a.dj.com/rss/RSSMarketsMain.xml",
 			},
 		],
