@@ -3,14 +3,19 @@ import { mutate } from "swr";
 
 export async function fetcher(input) {
 	const { docType, locale, filters } = JSON.parse(input);
+	const typeFilters =
+		typeof filters.type === "object"
+			? filters.type.map((filter) => filter.toLowerCase())
+			: [filters.type.toLowerCase];
+
+	console.log(typeFilters);
 	const documents = await queryRepeatableDocuments(
 		(doc) =>
 			doc.type === docType &&
 			doc.lang.slice(0, 2) === locale.slice(0, 2) &&
 			(!filters ||
 				!doc.data.type ||
-				(filters.type &&
-					filters.type.toLowerCase() === doc.data.type.toLowerCase()))
+				(filters.type && typeFilters.includes(doc.data.type.toLowerCase())))
 	);
 
 	return documents.map((p) => {
@@ -21,14 +26,4 @@ export async function fetcher(input) {
 			date: p.first_publication_date,
 		};
 	});
-}
-
-export function fetchAndCache(key, fetcher) {
-	const request = fetcher(key);
-	mutate(key, request, false);
-	return request;
-}
-
-export function getProjects(locale) {
-	return fetchAndCache(`project/${locale}`, fetcher);
 }
