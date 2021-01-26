@@ -8,7 +8,6 @@ export async function fetcher(input) {
 			? filters.type.map((filter) => filter.toLowerCase())
 			: [filters.type.toLowerCase];
 
-	console.log(typeFilters);
 	const documents = await queryRepeatableDocuments(
 		(doc) =>
 			doc.type === docType &&
