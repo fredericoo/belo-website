@@ -1,0 +1,28 @@
+@import "styles/abstracts/mixins";
+.section {
+	margin: 3rem 0;
+
+	.heading {
+		margin-bottom: 3rem;
+		grid-column: grid-start / grid-end;
+		@include responsive($tablet-p) {
+			grid-column: grid-start / col-7;
+		}
+	}
+	.textBlock {
+		grid-column: col-7 / grid-end;
+		@include responsive($tablet-p) {
+			grid-column: col-10 / grid-end;
+		}
+		margin-bottom: 3rem;
+		line-height: 1.4;
+		font-weight: 300;
+		p {
+			opacity: 0.5;
+		}
+		h3 {
+			font-weight: initial;
+			font-size: inherit;
+		}
+	}
+}
