@@ -16,11 +16,20 @@ const LangPicker = () => {
 				const availableLocales = router.locales.filter(
 					(lang) => lang === router.locale || altLocales.includes(lang)
 				);
+
 				return (
 					<ul className={`${styles.locales}`}>
 						{availableLocales.map((locale) => (
 							<li key={locale}>
-								<Link href={router.asPath} locale={locale}>
+								<Link
+									href={
+										(altLangs &&
+											altLangs.find((x) => x.lang == locale) &&
+											altLangs.find((x) => x.lang == locale).uid) ||
+										router.asPath
+									}
+									locale={locale}
+								>
 									<a
 										className={`smcp ${styles.locale} ${
 											locale === router.locale ? styles.active : ""

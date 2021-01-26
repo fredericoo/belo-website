@@ -3,7 +3,7 @@ import { useRouter } from "next/router";
 
 const useAvailableLocales = () => {
 	const router = useRouter();
-	const [availableLocales, setAvailableLocales] = useState(router.locales);
+	const [availableLocales, setAvailableLocales] = useState();
 	return [availableLocales, setAvailableLocales];
 };
 
