@@ -18,8 +18,6 @@ const Navbar = () => {
 
 	const menu = [
 		{ label: "about", href: "/company" },
-		// { label: "team", href: "/team" },
-		{ label: "articles", href: "/articles" },
 		{ label: "news", href: "/news" },
 		{ label: "alternativeData", href: "/alt-data" },
 		{ label: "contact", href: "/contact" },
