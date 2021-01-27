@@ -28,9 +28,6 @@
 
 	&--sm {
 		grid-template-columns: 1fr 1fr;
-		@include responsive($tablet-p) {
-			grid-template-columns: 1fr 1fr 1fr;
-		}
 		@include responsive($tablet-l) {
 			grid-template-columns: 1fr 1fr 1fr 1fr;
 		}
