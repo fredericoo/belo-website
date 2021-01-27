@@ -8,21 +8,16 @@
 		@include responsive($tablet-p) {
 			grid-column: grid-start / col-7;
 		}
+
+		.title {
+			margin-bottom: 2rem;
+		}
 	}
 	.textBlock {
-		grid-column: col-7 / grid-end;
+		grid-column: grid-star / grid-end;
 		@include responsive($tablet-p) {
-			grid-column: col-10 / grid-end;
+			grid-column: col-7 / grid-end;
 		}
 		margin-bottom: 3rem;
-		line-height: 1.4;
-		font-weight: 300;
-		p {
-			opacity: 0.5;
-		}
-		h3 {
-			font-weight: initial;
-			font-size: inherit;
-		}
 	}
 }

@@ -21,7 +21,7 @@
 	transition: opacity 1.2s var(--easing);
 	background-size: 400% 400%;
 	animation: gradient 15s ease infinite;
-
+	z-index: 0;
 	&.loaded {
 		opacity: 1;
 	}
@@ -50,6 +50,8 @@
 }
 
 .heading {
+	margin-top: 2rem;
+	transform: translateZ(1);
 	position: relative;
 	grid-row: 1;
 	align-self: end;

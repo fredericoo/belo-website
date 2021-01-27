@@ -63,7 +63,8 @@ body {
 	}
 	&-sm {
 		font-size: 0.9rem;
-		line-height: 1.3;
+		line-height: 1.4;
+		--leading: calc(1.4 * 0.9rem);
 	}
 	&-md {
 		font-size: 1rem;
