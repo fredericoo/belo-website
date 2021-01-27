@@ -11,7 +11,6 @@ import Placeholder from "components/Placeholder/Placeholder";
 
 export default function Page({ team, about }) {
 	const { t } = useTranslation();
-	const zeroPad = (num, places) => String(num).padStart(places, "0");
 	if (about) {
 		return (
 			<Layout altLangs={about.alternate_languages}>
