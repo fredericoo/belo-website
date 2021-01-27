@@ -22,6 +22,10 @@
 	"published": "Published",
 	"updated": "Updated",
 	"purpose": "Purpose",
+	"type": {
+		"News": "News",
+		"Article": "Article"
+	},
 	"cookies": {
 		"small": "Belo.re puts small files (known as ‘cookies’) onto your computer to collect information about how you browse the site.",
 		"accept": "Accept",

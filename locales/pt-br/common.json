@@ -22,6 +22,10 @@
 	"published": "Publicado",
 	"updated": "Atualizado",
 	"purpose": "Propósito",
+	"type": {
+		"News": "Notícia",
+		"Article": "Artigo"
+	},
 	"cookies": {
 		"small": "Belo.re coloca pequenos arquivos (conhecidos como ‘cookies’) em seu computador para coletar informação sobre como você utiliza este site.",
 		"accept": "Aceitar",
