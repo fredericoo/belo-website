@@ -7,7 +7,8 @@
 .meta,
 .thumbnail,
 .title,
-.lead {
+.lead,
+.author {
 	grid-column: grid-start / grid-end;
 	@include responsive($tablet-p) {
 		grid-column: col-2 / col-12;
@@ -24,6 +25,10 @@
 .title,
 .lead {
 	margin-bottom: var(--leading);
+}
+
+.author {
+	opacity: 0.6;
 }
 
 .notImportant {

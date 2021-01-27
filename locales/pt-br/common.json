@@ -19,8 +19,9 @@
 	"login": "Log in",
 	"loadMore": "Carregar mais",
 	"toggleMenu": "Abre ou fecha o menu.",
-	"published": "Publicado",
-	"updated": "Atualizado",
+	"published": "Publicado em",
+	"updated": "Atualizado em",
+	"writtenBy": "Escrito por",
 	"purpose": "Propósito",
 	"type": {
 		"News": "Notícia",

@@ -29,6 +29,8 @@ const ArticleMeta = ({ doc }) => {
 };
 
 export default function Post({ doc }) {
+	const { t } = useTranslation();
+
 	if (doc && doc.data) {
 		const article = doc.data;
 		const Pre = ArticleMeta;
@@ -58,6 +60,7 @@ export default function Post({ doc }) {
 						<div className={`${styles.lead} h-3`}>
 							<RichText render={article.lead} />
 						</div>
+
 						{article.thumbnail && article.thumbnail.url && (
 							<div className={styles.thumbnail}>
 								<Placeholder
@@ -71,6 +74,12 @@ export default function Post({ doc }) {
 										1920px"
 									alt={article.thumbnail.alt}
 								/>
+							</div>
+						)}
+						{article.author && (
+							<div className={`${styles.author}`}>
+								<p className="smcp">{t("common:writtenBy")}</p>
+								<RichText render={article.author} />
 							</div>
 						)}
 					</header>
