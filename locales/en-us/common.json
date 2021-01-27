@@ -21,5 +21,25 @@
 	"toggleMenu": "Toggle the menu.",
 	"published": "Published",
 	"updated": "Updated",
-	"purpose": "Purpose"
+	"purpose": "Purpose",
+	"cookies": {
+		"small": "Belo.re puts small files (known as ‘cookies’) onto your computer to collect information about how you browse the site.",
+		"accept": "Accept",
+		"reject": "Reject cookies",
+		"info": "More information",
+		"years": "years",
+		"hours": "hours",
+		"name": "Name",
+		"purpose": "Purpose",
+		"expires": "Expires",
+		"analyticsAbout": "Google Analytics stores information about:",
+		"analyticsAbout1": "how you got to the site",
+		"analyticsAbout2": "the pages you visit on belo.re and how long you spend on them",
+		"analyticsAbout3": "what you click on while you’re visiting the site",
+		"analytics": "Google Analytics sets the following cookies:",
+		"analyticsPurpose": "These help us count how many people visit belo.re by tracking if you’ve visited before",
+		"infoHeading": "Cookies used to improve your experience",
+		"infoText": "We use Google Analytics software (Universal Analytics) to collect anonymized information about how you use our website. We do this to help make sure the site is meeting the needs of its users and to help us make improvements to the site.",
+		"infoAside": "We do not allow Google to use or share the data about how you use this site."
+	}
 }

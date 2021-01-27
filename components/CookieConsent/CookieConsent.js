@@ -2,61 +2,52 @@ import styles from "./CookieConsent.module.scss";
 import Button from "components/Button/Button";
 import { useState, useEffect } from "react";
 import Cookies from "universal-cookie";
+import useTranslation from "next-translate/useTranslation";
 
-const CookieInfo = ({ onReject }) => (
-	<div className={`${styles.info} s-sm body body--sans`}>
-		<h2>Cookies used to improve your experience</h2>
-		<p>
-			We use Google Analytics software (Universal Analytics) to collect
-			anonymised information about how you use our website. We do this to help
-			make sure the site is meeting the needs of its users and to help us make
-			improvements to the site and to government digital services.
-		</p>
-		<p className="info">
-			We do not allow Google to use or share the data about how you use this
-			site.
-		</p>
-		<p>Google Analytics stores information about:</p>
-		<ul>
-			<li>how you got to the site;</li>
-			<li>the pages you visit on belo.re and how long you spend on them;</li>
-			<li>what you click on while you’re visiting the site</li>
-		</ul>
-		<p>Google Analytics sets the following cookies:</p>
-		<table>
-			<thead>
-				<tr>
-					<th>Name</th>
-					<th>Purpose</th>
-					<th width={100}>Expires</th>
-				</tr>
-			</thead>
-			<tbody>
-				<tr>
-					<td>_ga</td>
-					<td>
-						These help us count how many people visit belo.re by tracking if
-						you’ve visited before
-					</td>
-					<td>2 years</td>
-				</tr>
-				<tr>
-					<td>_gid</td>
-					<td>
-						These help us count how many people visit belo.re by tracking if
-						you’ve visited before
-					</td>
-					<td>24 hours</td>
-				</tr>
-			</tbody>
-		</table>
-		<Button type="secondary" onClick={onReject}>
-			Reject cookies
-		</Button>
-	</div>
-);
+const CookieInfo = ({ onReject }) => {
+	const { t } = useTranslation();
+	return (
+		<div className={`${styles.info} s-sm body body--sans`}>
+			<h2>{t("common:cookies.infoHeading")}</h2>
+			<p>{t("common:cookies.infoText")}</p>
+			<p className="info">{t("common:cookies.infoAside")}</p>
+			<p>{t("common:cookies.analyticsAbout")}</p>
+			<ul>
+				<li>{t("common:cookies.analyticsAbout1")};</li>
+				<li>{t("common:cookies.analyticsAbout2")};</li>
+				<li>{t("common:cookies.analyticsAbout3")}.</li>
+			</ul>
+			<p>{t("common:cookies.analytics")}</p>
+			<table>
+				<thead>
+					<tr>
+						<th>{t("common:cookies.name")}</th>
+						<th>{t("common:cookies.purpose")}</th>
+						<th width={100}>{t("common:cookies.expires")}</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>_ga</td>
+						<td>{t("common:cookies.analyticsPurpose")}</td>
+						<td>2 {t("common:cookies.years")}</td>
+					</tr>
+					<tr>
+						<td>_gid</td>
+						<td>{t("common:cookies.analyticsPurpose")}</td>
+						<td>24 {t("common:cookies.hours")}</td>
+					</tr>
+				</tbody>
+			</table>
+			<Button type="secondary" onClick={onReject}>
+				{t("common:cookies.reject")}
+			</Button>
+		</div>
+	);
+};
 
 const CookieConsent = ({ debug = false }) => {
+	const { t } = useTranslation();
 	const cookies = new Cookies();
 	let expiryDate = new Date();
 	const month = (expiryDate.getMonth() + 1) % 12;
@@ -89,18 +80,15 @@ const CookieConsent = ({ debug = false }) => {
 	return (
 		<aside className={`${styles.prompt} grid grid--inner s-sm`}>
 			{showInfo && <CookieInfo onReject={handleReject} />}
-			<div className={styles.text}>
-				belo.re puts small files (known as ‘cookies’) onto your computer to
-				collect information about how you browse the site.
-			</div>
+			<div className={styles.text}>{t("common:cookies.small")}</div>
 			<div className={styles.options}>
 				{!showInfo && (
 					<Button type="secondary" onClick={() => setShowInfo(true)}>
-						More information
+						{t("common:cookies.info")}
 					</Button>
 				)}
 				<Button type="primary" onClick={handleAccept}>
-					Accept
+					{t("common:cookies.accept")}
 				</Button>
 			</div>
 		</aside>
