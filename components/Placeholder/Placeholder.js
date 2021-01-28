@@ -2,7 +2,8 @@ import Image from "next/image";
 import { useState } from "react";
 import styles from "./Placeholder.module.scss";
 
-export default function Placeholder(props) {
+const Placeholder = (props) => {
+	if (!props || !props.src) return null;
 	const [loaded, setLoaded] = useState(false);
 	return (
 		<div className={`${styles.placeholder} ${loaded ? styles.loaded : ""}`}>
@@ -16,4 +17,6 @@ export default function Placeholder(props) {
 			/>
 		</div>
 	);
-}
+};
+
+export default Placeholder;
