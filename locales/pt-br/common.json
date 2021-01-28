@@ -11,9 +11,17 @@
 		"news": "Notícias",
 		"world": "Mundo"
 	},
+	"address": {
+		"line1": "R. Ouro Fino 395/701.",
+		"line2": "Belo Horizonte MG, Brasil"
+	},
 	"locales": {
 		"pt-br": "PT",
 		"en-us": "EN"
+	},
+	"separator": {
+		"decimal": ",",
+		"thousands": "."
 	},
 	"footer": "Rodapé",
 	"login": "Log in",

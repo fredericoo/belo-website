@@ -3,7 +3,7 @@
 	"desc": "We bring out value from the most suitable information to improve your yield.",
 	"menu": {
 		"home": "Home",
-		"about": "Company",
+		"about": "About us",
 		"team": "Team",
 		"articles": "Articles",
 		"contact": "Contact",
@@ -14,6 +14,14 @@
 	"locales": {
 		"pt-br": "PT",
 		"en-us": "EN"
+	},
+	"address": {
+		"line1": "R. Ouro Fino 395/701.",
+		"line2": "Belo Horizonte MG, Brazil"
+	},
+	"separator": {
+		"decimal": ".",
+		"thousands": ","
 	},
 	"footer": "Footer",
 	"login": "Log in",
