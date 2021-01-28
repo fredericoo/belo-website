@@ -24,18 +24,18 @@
 		opacity: 0.5;
 	}
 	.subHeading {
-		grid-column: grid-start / col-7;
+		grid-column: grid-start / col-4;
 		@include responsive($tablet-p) {
-			grid-column: col-7 / col-9;
+			grid-column: col-7 / col-8;
 		}
 		margin-bottom: 2rem;
 		opacity: 0.5;
 		font-weight: 300;
 	}
 	.textBlock {
-		grid-column: col-7 / grid-end;
+		grid-column: col-4 / grid-end;
 		@include responsive($tablet-p) {
-			grid-column: col-10 / grid-end;
+			grid-column: col-8 / grid-end;
 		}
 		margin-bottom: 2rem;
 		line-height: 1.4;
