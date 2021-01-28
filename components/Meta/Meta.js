@@ -11,36 +11,35 @@ const Meta = ({ pageTitle, pageDesc, pageType, pageImage }) => {
 			: t("common:title"),
 		desc: pageDesc ? pageDesc : t("common:desc"),
 	};
-	const GA_TRACKING_ID = "G-NXZQEY4YQP";
+
 	return (
 		<Head>
 			<title>{tabInfo.title}</title>
-			<meta property="og:title" content={tabInfo.title} />
-
-			<meta property="og:description" content={tabInfo.desc} />
-			<meta name="description" content={tabInfo.desc} />
-
 			<meta
 				name="viewport"
 				content="viewport-fit=cover, width=device-width, initial-scale=1.0"
 			/>
+			<meta property="og:title" content={tabInfo.title} />
 
-			<meta name="theme-color" content="#f0f0f0" />
-			<link rel="manifest" href="/manifest.json" />
-			<meta name="msapplication-config" content="/browserconfig.xml" />
-
-			<meta name="copyright" content="Filipe Lampejo" />
-			<meta name="designer" content="Penumbra design et web" />
-
-			<meta name="robots" content="index,follow" />
+			<meta property="og:description" content={tabInfo.desc} />
+			<meta name="description" content={tabInfo.desc} />
 
 			<link rel="canonical" href={`https://belo.re${asPath}`} />
 			<meta property="og:url" href={`https://belo.re${asPath}`} />
 
 			{pageImage && <meta property="og:image" content={pageImage} />}
 
-			<meta name="twitter:card" content="summary_large_image" />
 			<meta property="og:type" content={pageType || "website"} />
+
+			<meta name="theme-color" content="#f0f0f0" />
+			<link rel="manifest" href="/manifest.json" />
+			<meta name="msapplication-config" content="/browserconfig.xml" />
+
+			<meta name="copyright" content="Frederico Batista" />
+			<meta name="designer" content="Penumbra design et web" />
+
+			<meta name="robots" content="index,follow" />
+			<meta name="twitter:card" content="summary_large_image" />
 			<meta name="og:email" content="belo@belo.re" />
 
 			{/* WEB APP */}
@@ -91,24 +90,6 @@ const Meta = ({ pageTitle, pageDesc, pageType, pageImage }) => {
 
 			<link rel="icon" href="/favicons/favicon.svg" />
 			<link rel="mask-icon" href="/favicons/favicon.svg" color="#000000" />
-
-			{/* TRACKING */}
-			<script
-				async
-				src="https://www.googletagmanager.com/gtag/js?id=G-NXZQEY4YQP"
-			/>
-			<script
-				dangerouslySetInnerHTML={{
-					__html: `
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-            gtag('config', '${GA_TRACKING_ID}', {
-              page_path: window.location.pathname,
-            });
-          `,
-				}}
-			/>
 
 			{/* PRELOADING */}
 			<link
