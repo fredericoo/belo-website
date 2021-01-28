@@ -8,8 +8,10 @@
 
 	.text {
 		grid-column: grid-start / grid-end;
+		margin-bottom: 1rem;
 		@include responsive($tablet-l) {
 			grid-column: grid-start / col-7;
+			margin-bottom: 0;
 		}
 	}
 	.options {
