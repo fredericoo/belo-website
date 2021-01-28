@@ -39,6 +39,7 @@ const WorldNews = ({ perPage = 5, display = 5, showDivider }) => {
 							size={index === 0 ? 3 : post.thumbnail ? 2 : 1}
 							lead={moment(post.date).format("ll")}
 							href={post.link}
+							target="_blank"
 							// thumbnail={post.thumbnail}
 							source={post.source}
 						/>
