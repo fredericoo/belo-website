@@ -16,14 +16,14 @@ export default function Page({ doc }) {
 					<h2 className={`${styles.title} h-1`}>
 						{t("common:menu.alternativeData")}
 					</h2>
-					{doc && doc.data.lead && (
+					{doc?.data && doc.data.lead && (
 						<div className={`h-3`}>
 							<RichText render={doc.data.lead} />
 						</div>
 					)}
 				</div>
 
-				{doc && (
+				{doc?.data && (
 					<div className={`${styles.textBlock} body body--sans s-sm`}>
 						<RichText render={doc.data.about} />
 					</div>
