@@ -18,11 +18,11 @@ const LoginPage = () => {
 					<h1 className="h-3">{t("common:login")}</h1>
 				</header>
 				<form className={styles.form}>
-					<label className={`smcp`} for="username">
+					<label className={`smcp`} htmlFor="username">
 						Email or Client ID
 					</label>
 					<input type="text" name="username" id="username" />
-					<label className={`smcp`} for="password">
+					<label className={`smcp`} htmlFor="password">
 						Password
 					</label>
 					<input type="password" name="password" id="password" />
