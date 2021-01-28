@@ -1,7 +1,7 @@
 import Layout from "components/Layout/Layout";
 import Meta from "components/Meta/Meta";
 import useTranslation from "next-translate/useTranslation";
-import styles from "./company.module.scss";
+import styles from "./about.module.scss";
 import { Client } from "utils/prismicHelpers";
 import { queryRepeatableDocuments } from "utils/queries";
 import Team from "components/Team/Team";
@@ -38,6 +38,7 @@ export default function Page({ team, about }) {
 								width={about.data.image.dimensions.width}
 								height={about.data.image.dimensions.height}
 								quality={100}
+								alt={about.data.image.alt}
 								unoptimized
 							/>
 						</div>
