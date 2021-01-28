@@ -14,7 +14,7 @@
 		}
 	}
 	.textBlock {
-		grid-column: grid-star / grid-end;
+		grid-column: grid-start / grid-end;
 		@include responsive($tablet-p) {
 			grid-column: col-7 / grid-end;
 		}
