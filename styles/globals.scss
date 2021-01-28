@@ -7,8 +7,8 @@
 @import "vendors/normalize";
 
 // 3. Base stuff
-@import "base/base", "base/fonts", "base/tables", "base/variables",
-	"base/helpers", "base/typography";
+@import "base/base", "base/fonts", "base/variables", "base/helpers",
+	"base/typography";
 
 // 4. Layout specifics
-@import "layout/grid";
+@import "layout/grid", "layout/tables";
