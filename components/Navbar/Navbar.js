@@ -17,7 +17,7 @@ const Navbar = () => {
 	}, [asPath]);
 
 	const menu = [
-		{ label: "about", href: "/company" },
+		{ label: "about", href: "/about" },
 		{ label: "news", href: "/news" },
 		{ label: "alternativeData", href: "/alt-data" },
 		{ label: "contact", href: "/contact" },
@@ -25,6 +25,16 @@ const Navbar = () => {
 
 	return (
 		<nav className={`container ${styles.navbar}`}>
+			<button
+				label={t("common:toggleMenu")}
+				className={`${styles.toggler}`}
+				type="button"
+				onClick={toggle}
+			>
+				<div className={`${styles.togglerIcon} ${isOpen ? styles.open : ""}`}>
+					<span></span>
+				</div>
+			</button>
 			<Link href="/">
 				<a className={styles.logo}>
 					<img src="/logo.svg" />
@@ -55,16 +65,24 @@ const Navbar = () => {
 					</div>
 				</div>
 			</div>
-			<button
-				label={t("common:toggleMenu")}
-				className={`${styles.toggler}`}
-				type="button"
-				onClick={toggle}
-			>
-				<div className={`${styles.togglerIcon} ${isOpen ? styles.open : ""}`}>
-					<span></span>
-				</div>
-			</button>
+			<Link href="/login">
+				<a className={`${styles.loginBtn}`}>
+					<svg
+						xmlns="http://www.w3.org/2000/svg"
+						width="1.5rem"
+						height="1.5rem"
+						viewBox="0 0 24 24"
+						fill="none"
+						stroke="currentColor"
+						strokeWidth="1.5"
+						strokeLinecap="butt"
+						strokeLinejoin="arcs"
+					>
+						<path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+						<circle cx="12" cy="7" r="4"></circle>
+					</svg>
+				</a>
+			</Link>
 		</nav>
 	);
 };
