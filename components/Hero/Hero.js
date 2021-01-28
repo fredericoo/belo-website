@@ -14,7 +14,6 @@ const Hero = ({ heading, about, cta }) => {
 			<div
 				className={`${styles.canvas} ${isLoaded ? styles.loaded : ""}`}
 			></div>
-			<div className={styles.overlay}></div>
 			<h1 className={`h-1 ${styles.heading}`}>{RichText.asText(heading)}</h1>
 			<div className={`body body--sans ${styles.box}`}>
 				<RichText render={about} />
