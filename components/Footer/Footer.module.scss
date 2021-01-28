@@ -9,4 +9,16 @@
 	@include responsive($tablet-l) {
 		margin-bottom: 0;
 	}
+	position: relative;
+}
+
+.pin {
+	@include responsive($tablet-l) {
+		position: absolute;
+		left: -1.2rem;
+		opacity: 0.3;
+		@include on-event {
+			opacity: 1;
+		}
+	}
 }
