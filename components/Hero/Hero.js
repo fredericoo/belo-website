@@ -6,7 +6,7 @@ import { RichText } from "prismic-reactjs";
 const Hero = ({ heading, about, cta }) => {
 	const [isLoaded, setIsLoaded] = useState(false);
 	useEffect(() => {
-		setIsLoaded(true);
+		window && window.setTimeout(() => setIsLoaded(true), 300);
 	}, []);
 
 	return (
@@ -17,7 +17,7 @@ const Hero = ({ heading, about, cta }) => {
 			<h1 className={`h-1 ${styles.heading}`}>{RichText.asText(heading)}</h1>
 			<div className={`body body--sans ${styles.box}`}>
 				<RichText render={about} />
-				<Button href="/company" type="arrow">
+				<Button href="/about" type="arrow">
 					{cta}
 				</Button>
 			</div>
