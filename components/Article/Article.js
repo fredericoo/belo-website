@@ -3,7 +3,16 @@ import Placeholder from "components/Placeholder/Placeholder";
 import styles from "./Article.module.scss";
 import { RichText } from "prismic-reactjs";
 
-const Article = ({ href, title, source, lead, type, thumbnail, size }) => {
+const Article = ({
+	href,
+	title,
+	source,
+	lead,
+	type,
+	thumbnail,
+	size,
+	target,
+}) => {
 	const articleClass = `${styles.article} ${
 		size ? styles[`size-${size}`] : ""
 	}`;
@@ -16,7 +25,7 @@ const Article = ({ href, title, source, lead, type, thumbnail, size }) => {
 	if (href)
 		return (
 			<Link href={href}>
-				<a className={articleClass}>
+				<a className={articleClass} target={target}>
 					{thumbnail && thumbnail.url && size >= 2 && (
 						<div className={styles.thumbnail}>
 							<Placeholder
