@@ -50,7 +50,7 @@ const News = ({ display = 5, perPage = 5, showDivider }) => {
 								href={post.slug && `/article/${post.slug}`}
 								thumbnail={post.thumbnail}
 								source={moment(post.date).format("ll")}
-								type={t(`common:type.${post.type}`)}
+								type={post.type ? t(`common:type.${post.type}`) : undefined}
 							/>
 						))}
 			</div>
