@@ -43,6 +43,12 @@
 	}
 }
 
+@keyframes flash {
+	to {
+		background-color: transparent;
+	}
+}
+
 .entry {
 	display: flex;
 	margin-left: 1rem;
@@ -64,6 +70,11 @@
 		height: 0;
 		border-left: 0.5em solid transparent;
 		border-right: 0.5em solid transparent;
+	}
+	&.neutral {
+		.arrow {
+			display: none;
+		}
 	}
 	&.positive {
 		.value {
@@ -157,4 +168,15 @@
 		transform: translate(100%, 0);
 		opacity: 1;
 	}
+}
+
+.timestamp {
+	user-select: none;
+	right: max(var(--sidebearing) + var(--gutter), var(--gutter));
+	position: absolute;
+	opacity: 0.3;
+	font-size: 8px;
+	text-transform: uppercase;
+	letter-spacing: 0.04em;
+	font-variant-numeric: tabular-nums;
 }

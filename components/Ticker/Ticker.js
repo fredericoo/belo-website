@@ -1,9 +1,29 @@
 import styles from "./Ticker.module.scss";
-import { useState, useEffect } from "react";
 import { withSeparator } from "./utils/numbers";
 import useTranslation from "next-translate/useTranslation";
+import moment from "moment";
+import useSWR from "swr";
+import { useState, useEffect, useRef } from "react";
 
 const TickerEntry = ({ entry }) => {
+	const numberRef = useRef();
+	const [lastValue, setLastValue] = useState(entry.change);
+	useEffect(() => {
+		if (entry.change != lastValue) {
+			setLastValue(entry.change);
+			if (numberRef.current) {
+				numberRef.current.animate(
+					[
+						{
+							backgroundColor: lastValue > entry.change ? "#fce0b2" : "#73b0a6",
+						},
+						{ backgroundColor: "transparent" },
+					],
+					{ duration: 1000 }
+				);
+			}
+		}
+	}, [entry]);
 	if (entry.symbol) {
 		const { t } = useTranslation();
 		const direction =
@@ -11,7 +31,7 @@ const TickerEntry = ({ entry }) => {
 		return (
 			<li className={`s-xs ${styles.entry} ${styles[direction]}`}>
 				<div className={`${styles.label}`}>{entry.name}</div>
-				<div className={`${styles.price}`}>
+				<div ref={numberRef} className={`${styles.price}`}>
 					{withSeparator(
 						entry.price,
 						t("common:separator.decimal"),
@@ -47,34 +67,39 @@ const TickerEntry = ({ entry }) => {
 };
 
 const Ticker = ({}) => {
-	const [data, setData] = useState(new Array(5).fill({}));
-	useEffect(() => {
-		fetch("/api/market")
-			.then((res) => res.json())
-			.then((data) => {
-				if (data.stocks.length) setData(data.stocks);
-			});
-	}, []);
+	const fetcher = (url) => fetch(url).then((r) => r.json());
+	const { t } = useTranslation();
+
+	const { data, error } = useSWR("/api/market", fetcher, {
+		refreshInterval: 60000,
+	});
+	if (error) return null;
+	const skeleton = { stocks: new Array(5).fill({}) };
 
 	return (
 		<aside className={styles.ticker}>
 			<div
 				className={styles.viewport}
-				style={{ "--entries": data.length || 5 }}
+				style={{ "--entries": data?.stocks.length || skeleton.stocks.length }}
 			>
 				<ul className={styles.first}>
-					{data.length &&
-						data.map((entry, index) => (
+					{data?.stocks.length &&
+						data.stocks.map((entry, index) => (
 							<TickerEntry key={`entry-${index}`} entry={entry} />
 						))}
 				</ul>
 				<ul className={styles.second}>
-					{data.length &&
-						data.map((entry, index) => (
+					{data?.stocks.length &&
+						data.stocks.map((entry, index) => (
 							<TickerEntry key={`entry-${index}`} entry={entry} />
 						))}
 				</ul>
 			</div>
+			{data && data.timestamp && (
+				<div className={`${styles.timestamp}`}>
+					{t("common:updated")} {moment(data.timestamp).format("lll")}
+				</div>
+			)}
 		</aside>
 	);
 };
