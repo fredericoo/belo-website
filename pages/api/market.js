@@ -1,5 +1,8 @@
+import moment from "moment";
+
 async function market(req, res) {
 	const apiKey = process.env.FMP_KEY;
+	const timestamp = moment().format();
 
 	const symbols = [
 		"^BVSP",
@@ -16,7 +19,7 @@ async function market(req, res) {
 		.then((res) => res.json())
 		.then((data) => {
 			res.setHeader("Cache-Control", "s-maxage=60, stale-while-revalidate");
-			res.json({ stocks: data });
+			res.json({ timestamp, stocks: data });
 		})
 		.catch((err) => {
 			res.setHeader("Cache-Control", "s-maxage=60, stale-while-revalidate");
