@@ -90,18 +90,6 @@ const Meta = ({ pageTitle, pageDesc, pageType, pageImage }) => {
 
 			<link rel="icon" href="/favicons/favicon.svg" />
 			<link rel="mask-icon" href="/favicons/favicon.svg" color="#000000" />
-
-			{/* PRELOADING */}
-			<link
-				rel="preload"
-				href="/fonts/fakt/364db368710f5fb837ef8418c6d51df3e3027bfb.woff"
-				as="font"
-			/>
-			<link
-				rel="preload"
-				href="/fonts/fakt/7071de2dc925341ccc839e2d8a7dea79820800b3.woff"
-				as="font"
-			/>
 		</Head>
 	);
 };

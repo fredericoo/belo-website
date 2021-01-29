@@ -11,6 +11,18 @@ class MyDocument extends Document {
 		return (
 			<Html>
 				<Head>
+					{/* PRELOADING */}
+					<link
+						rel="preload"
+						href="/fonts/fakt/364db368710f5fb837ef8418c6d51df3e3027bfb.woff2"
+						as="font"
+					/>
+					<link
+						rel="preload"
+						href="/fonts/fakt/7071de2dc925341ccc839e2d8a7dea79820800b3.woff2"
+						as="font"
+					/>
+
 					{/* TRACKING */}
 					<script
 						async
