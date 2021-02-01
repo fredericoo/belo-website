@@ -5,6 +5,7 @@ import styles from "./contact.module.scss";
 import { Client } from "utils/prismicHelpers";
 import { RichText } from "prismic-reactjs";
 import { Fragment } from "react";
+import Placeholder from "components/Placeholder/Placeholder";
 
 export default function Page({ doc }) {
 	const { t } = useTranslation();
@@ -15,15 +16,23 @@ export default function Page({ doc }) {
 					pageTitle={t("common:menu.contact")}
 					pageDesc={RichText.asText(doc.data.text)}
 				/>
-				<section className={`${styles.section} grid grid--inner`}>
+				{/* {doc.data.image && (
+					<div className={styles.image}>
+						<Placeholder
+							src={doc.data.image.url}
+							width={doc.data.image.dimensions.width}
+							height={doc.data.image.dimensions.height}
+							layout="responsive"
+						/>
+					</div>
+				)} */}
+				<section className={`${styles.section} grid grid--full`}>
 					<div className={styles.heading}>
 						<h2 className={`h-1`}>{RichText.asText(doc.data.heading)}</h2>
 						<div className={styles.text}>
 							<RichText render={doc.data.text} />
 						</div>
 					</div>
-				</section>
-				<section className={`${styles.section} grid grid--inner`}>
 					{doc.data.contact.map((way, index) => (
 						<Fragment key={`contact-${index}`}>
 							<h3 className={`${styles.subHeading}`}>{way.form}</h3>
@@ -33,6 +42,7 @@ export default function Page({ doc }) {
 						</Fragment>
 					))}
 				</section>
+				<section className={`${styles.section} grid grid--inner`}></section>
 			</Layout>
 		);
 	}

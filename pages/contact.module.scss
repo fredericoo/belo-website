@@ -16,6 +16,7 @@
 		margin-bottom: 3rem;
 		grid-column: grid-start / grid-end;
 		@include responsive($tablet-p) {
+			grid-row: 1 / 100;
 			grid-column: grid-start / col-7;
 		}
 	}
@@ -31,6 +32,12 @@
 		margin-bottom: 2rem;
 		opacity: 0.5;
 		font-weight: 300;
+	}
+	.image {
+		grid-column: grid-start / grid-end;
+		@include responsive($tablet-p) {
+			grid-column: col-7 / screen-end;
+		}
 	}
 	.textBlock {
 		grid-column: col-4 / grid-end;
