@@ -1,22 +1,20 @@
 @import "styles/abstracts/mixins";
 
 .section {
+	--bodySize: 1rem;
+	--leading: calc(1.618 * var(--bodySize));
 	margin: calc(var(--leading) * 1) 0;
 	grid-column: grid-start / grid-end;
 	@include responsive($tablet-p) {
 		grid-column: col-2 / col-12;
+		--bodySize: 1.1rem;
 	}
 	@include responsive($tablet-l) {
 		grid-column: col-3 / col-11;
 	}
 
 	p {
-		@include responsive($tablet-p) {
-			font-size: 1.1rem;
-		}
-		@include responsive($desktop) {
-			font-size: 1.2rem;
-		}
+		font-size: var(--bodySize);
 	}
 
 	h1,
