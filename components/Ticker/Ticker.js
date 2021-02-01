@@ -19,7 +19,7 @@ const TickerEntry = ({ entry }) => {
 						},
 						{ backgroundColor: "transparent" },
 					],
-					{ duration: 1000 }
+					{ duration: 2000 }
 				);
 			}
 		}
