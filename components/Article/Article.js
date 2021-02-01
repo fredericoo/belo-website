@@ -15,7 +15,7 @@ const Article = ({
 }) => {
 	const articleClass = `${styles.article} ${
 		size ? styles[`size-${size}`] : ""
-	}`;
+	} ${href && href.charAt(0) != "/" ? styles.external : ""}`;
 	const headingClass = `${
 		size && size < 3 ? "h-4" : thumbnail && thumbnail.url ? "h-3" : "h-2"
 	} ${styles.title}`;
@@ -37,13 +37,15 @@ const Article = ({
 							/>
 						</div>
 					)}
-					<h3 className={headingClass}>
-						{typeof title === "object" ? (
-							RichText.asText(title)
-						) : (
-							<div dangerouslySetInnerHTML={{ __html: title }} />
-						)}
-					</h3>
+
+					{typeof title === "object" ? (
+						<h3 className={headingClass}>{RichText.asText(title)}</h3>
+					) : (
+						<h3
+							className={headingClass}
+							dangerouslySetInnerHTML={{ __html: title }}
+						/>
+					)}
 					<h4 className={sourceClass}>
 						{type && <span className={styles.type}>{type}</span>} {source}
 					</h4>
