@@ -57,6 +57,12 @@ export default function Post({ doc }) {
 						<h1 className={`${styles.title} h-1`}>
 							{RichText.asText(article.title)}
 						</h1>
+						{article.author && (
+							<div className={`${styles.author} s-xs`}>
+								<p className="smcp">{t("common:writtenBy")}</p>
+								<RichText render={article.author} />
+							</div>
+						)}
 						<div className={`${styles.lead} h-3`}>
 							<RichText render={article.lead} />
 						</div>
@@ -74,12 +80,6 @@ export default function Post({ doc }) {
 										1920px"
 									alt={article.thumbnail.alt}
 								/>
-							</div>
-						)}
-						{article.author && (
-							<div className={`${styles.author}`}>
-								<p className="smcp">{t("common:writtenBy")}</p>
-								<RichText render={article.author} />
 							</div>
 						)}
 					</header>
