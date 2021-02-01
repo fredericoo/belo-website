@@ -1,0 +1,17 @@
+@import "styles/abstracts/mixins";
+
+.box {
+	transform: translateZ(1);
+	z-index: 2;
+	position: relative;
+	background: var(--colour__bg);
+	align-self: center;
+	grid-column: grid-end / grid-start;
+	@include responsive($tablet-p) {
+		grid-column: grid-end / col-7;
+	}
+
+	&.padded {
+		padding: var(--gutter);
+	}
+}
