@@ -5,11 +5,12 @@ import Button from "components/Button/Button";
 import Article from "components/Article/Article";
 
 import moment from "moment";
+
 import { useRouter } from "next/router";
 import useSWR from "swr";
 import { fetcher } from "utils/fetcher";
 
-const News = ({ display = 5, perPage = 5, showDivider }) => {
+const News = ({ display = 5, perPage = 5 }) => {
 	const { locale } = useRouter();
 	const { data } = useSWR(
 		JSON.stringify({
@@ -36,10 +37,10 @@ const News = ({ display = 5, perPage = 5, showDivider }) => {
 
 	return (
 		<section className={`container ${styles.section}`}>
-			{showDivider && <h2 className={`h-div`}>{t("common:menu.news")}</h2>}
 			<div className={`loop loop--sm ${styles.articles}`}>
 				{posts &&
 					posts
+						.sort((a, b) => (a.date > b.date ? -1 : 1))
 						.slice(0, Math.min(showing, posts.length))
 						.map((post, index) => (
 							<Article

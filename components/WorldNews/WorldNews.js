@@ -7,7 +7,7 @@ import Article from "components/Article/Article";
 import moment from "moment";
 import { useRouter } from "next/router";
 
-const WorldNews = ({ perPage = 5, display = 5, showDivider }) => {
+const WorldNews = ({ perPage = 5, display = 5 }) => {
 	const { locale } = useRouter();
 	const [data, setData] = useState();
 	const [showing, setShowing] = useState(display);
@@ -29,21 +29,23 @@ const WorldNews = ({ perPage = 5, display = 5, showDivider }) => {
 
 	return (
 		<section className={`container ${styles.section}`}>
-			{showDivider && <h2 className={`h-div`}>{t("common:menu.world")}</h2>}
 			<div className={`loop loop--sm ${styles.articles}`}>
 				{posts &&
-					posts.slice(0, Math.min(showing, posts.length)).map((post, index) => (
-						<Article
-							key={`post-${index}`}
-							title={post.title}
-							size={index === 0 ? 3 : post.thumbnail ? 2 : 1}
-							lead={moment(post.date).format("ll")}
-							href={post.link}
-							target="_blank"
-							// thumbnail={post.thumbnail}
-							source={post.source}
-						/>
-					))}
+					posts
+						.sort((a, b) => (a.date > b.date ? -1 : 1))
+						.slice(0, Math.min(showing, posts.length))
+						.map((post, index) => (
+							<Article
+								key={`post-${index}`}
+								title={post.title}
+								size={index === 0 ? 3 : post.thumbnail ? 2 : 1}
+								lead={moment(post.date).format("lll")}
+								href={post.link}
+								target="_blank"
+								// thumbnail={post.thumbnail}
+								source={post.source}
+							/>
+						))}
 			</div>
 			{posts.length > showing && (
 				<div className={styles.loadMore}>

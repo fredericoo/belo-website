@@ -8,7 +8,7 @@ import { useRouter } from "next/router";
 import useSWR from "swr";
 import { fetcher } from "utils/fetcher";
 
-const Articles = ({ display = 3, perPage = 3, showDivider }) => {
+const Articles = ({ display = 3, perPage = 3 }) => {
 	const { locale } = useRouter();
 	const { data } = useSWR(
 		JSON.stringify({
@@ -34,23 +34,23 @@ const Articles = ({ display = 3, perPage = 3, showDivider }) => {
 
 	return (
 		<section className={`container ${styles.section}`}>
-			{showDivider && (
-				<h2 className={`h-div`}>{t("common:menu.alternativeData")}</h2>
-			)}
 			<div className={`loop loop--md ${styles.articles}`}>
 				{posts &&
-					posts.slice(0, Math.min(showing, posts.length)).map((post, index) => {
-						return (
-							<Article
-								key={`post-${index}`}
-								title={post.title}
-								size={2}
-								lead={post.lead}
-								href={post.slug && `/article/${post.slug}`}
-								thumbnail={post.thumbnail}
-							/>
-						);
-					})}
+					posts
+						.sort((a, b) => (a.date > b.date ? -1 : 1))
+						.slice(0, Math.min(showing, posts.length))
+						.map((post, index) => {
+							return (
+								<Article
+									key={`post-${index}`}
+									title={post.title}
+									size={2}
+									lead={post.lead}
+									href={post.slug && `/article/${post.slug}`}
+									thumbnail={post.thumbnail}
+								/>
+							);
+						})}
 			</div>
 			{posts.length > showing && (
 				<div className={styles.loadMore}>
