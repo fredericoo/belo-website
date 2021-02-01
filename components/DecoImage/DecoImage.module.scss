@@ -1,0 +1,8 @@
+@import "styles/abstracts/mixins";
+
+.wrapper {
+	grid-column: grid-end / grid-start;
+	@include responsive($tablet-p) {
+		grid-column: screen-start / col-7;
+	}
+}
