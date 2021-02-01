@@ -6,7 +6,7 @@ const Footer = () => {
 	const { t } = useTranslation();
 
 	return (
-		<footer className={`container`}>
+		<footer className={`grid grid--inner ${styles.section}`}>
 			<h3 className="visually-hidden">{t("common:footer")}</h3>
 			<ul className={`loop s-sm loop--sm ${styles.columns}`}>
 				<li>
@@ -35,12 +35,14 @@ const Footer = () => {
 				</li>
 				<li>
 					<h3>Links</h3>
-					<p>
-						<Link href="/company">{t("common:menu.about")}</Link>
-					</p>
-					<p>
-						<Link href="/contact">{t("common:menu.contact")}</Link>
-					</p>
+					<ul>
+						<li className={styles.link}>
+							<Link href="/company">{t("common:menu.about")}</Link>
+						</li>
+						<li className={styles.link}>
+							<Link href="/contact">{t("common:menu.contact")}</Link>
+						</li>
+					</ul>
 				</li>
 			</ul>
 		</footer>
