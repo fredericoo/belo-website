@@ -9,7 +9,7 @@ export default function Page() {
 	return (
 		<Layout>
 			<Meta pageTitle={t("common:menu.news")} />
-			<Divider />
+			<Divider spacer />
 			<News perPage={9} />
 		</Layout>
 	);
