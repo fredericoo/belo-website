@@ -23,6 +23,7 @@
 		"decimal": ".",
 		"thousands": ","
 	},
+	"from": "from",
 	"footer": "Footer",
 	"login": "Log in",
 	"loadMore": "Load more",

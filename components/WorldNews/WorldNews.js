@@ -39,11 +39,11 @@ const WorldNews = ({ perPage = 5, display = 5 }) => {
 								key={`post-${index}`}
 								title={post.title}
 								size={index === 0 ? 3 : post.thumbnail ? 2 : 1}
-								lead={moment(post.date).format("lll")}
+								lead={`${t("common:from")} ${post.source}`}
 								href={post.link}
 								target="_blank"
 								// thumbnail={post.thumbnail}
-								source={post.source}
+								source={moment(post.date).format("lll")}
 							/>
 						))}
 			</div>

@@ -23,6 +23,7 @@
 		"decimal": ",",
 		"thousands": "."
 	},
+	"from": "fonte: ",
 	"footer": "Rodapé",
 	"login": "Log in",
 	"loadMore": "Carregar mais",
