@@ -12,6 +12,10 @@ const Meta = ({ pageTitle, pageDesc, pageType, pageImage }) => {
 		desc: pageDesc ? pageDesc : t("common:desc"),
 	};
 
+	const seoImage =
+		pageImage ||
+		"https://images.prismic.io/belo/0faddb0b-d869-4fd4-af20-cfb4fc09b92c_belo-inside+copy.jpg?&rect=0,104,1440,683&w=1200&h=627";
+
 	return (
 		<Head>
 			<title>{tabInfo.title}</title>
@@ -27,7 +31,7 @@ const Meta = ({ pageTitle, pageDesc, pageType, pageImage }) => {
 			<link rel="canonical" href={`https://belo.re${asPath}`} />
 			<meta property="og:url" href={`https://belo.re${asPath}`} />
 
-			{pageImage && <meta property="og:image" content={pageImage} />}
+			<meta property="og:image" content={seoImage} />
 
 			<meta property="og:type" content={pageType || "website"} />
 
@@ -49,7 +53,6 @@ const Meta = ({ pageTitle, pageDesc, pageType, pageImage }) => {
 				content="default"
 				// content="black-translucent"
 			/>
-			<link rel="apple-touch-startup-image" href="/splash.png" />
 
 			{/* FAVICONS */}
 			<link rel="icon" href="/favicons/favicon-32.png" sizes="32x32" />
