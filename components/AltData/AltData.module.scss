@@ -1,6 +1,8 @@
 @import "styles/abstracts/mixins";
 
 .section {
+	margin-bottom: 3rem;
+
 	.articles {
 		overflow: hidden;
 		margin: 0 calc(-1 * var(--colGap));

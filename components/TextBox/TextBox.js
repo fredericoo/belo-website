@@ -3,7 +3,6 @@ import { RichText } from "prismic-reactjs";
 import Button from "components/Button/Button";
 
 const TextBox = ({ text, href, cta, padded, row }) => {
-	console.log(row);
 	return (
 		<div
 			className={`body body--sans ${styles.box} ${padded ? styles.padded : ""}`}

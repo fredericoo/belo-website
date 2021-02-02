@@ -44,7 +44,7 @@ const Articles = ({ display = 3, perPage = 3 }) => {
 								<Article
 									key={`post-${index}`}
 									title={post.title}
-									size={2}
+									size={1}
 									lead={post.lead}
 									href={post.slug && `/article/${post.slug}`}
 									thumbnail={post.thumbnail}

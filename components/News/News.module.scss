@@ -1,6 +1,8 @@
 @import "styles/abstracts/mixins";
 
 .section {
+	margin-bottom: 3rem;
+
 	.articles {
 		overflow: hidden;
 		grid-auto-flow: dense;

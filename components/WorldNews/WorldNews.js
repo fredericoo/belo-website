@@ -38,7 +38,7 @@ const WorldNews = ({ perPage = 5, display = 5 }) => {
 							<Article
 								key={`post-${index}`}
 								title={post.title}
-								size={index === 0 ? 3 : post.thumbnail ? 2 : 1}
+								size={index === 0 ? 2 : 1}
 								lead={`${t("common:from")} ${post.source}`}
 								href={post.link}
 								target="_blank"

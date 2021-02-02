@@ -15,9 +15,10 @@ const Article = ({
 }) => {
 	const articleClass = `${styles.article} ${
 		size ? styles[`size-${size}`] : ""
-	} ${href && href.charAt(0) != "/" ? styles.external : ""}`;
+	} ${href && href.charAt(0) != "/" ? styles.external : ""}
+	${thumbnail && thumbnail.url ? styles.hasImage : ""}`;
 	const headingClass = `${
-		size && size < 3 ? "h-4" : thumbnail && thumbnail.url ? "h-3" : "h-2"
+		size && size < 2 ? "h-4" : thumbnail && thumbnail.url ? "h-3" : "h-2"
 	} ${styles.title}`;
 	const sourceClass = `${styles.source} s-xs`;
 	const leadClass = `s-sm ${styles.lead}`;
@@ -26,12 +27,12 @@ const Article = ({
 		return (
 			<Link href={href}>
 				<a className={articleClass} target={target}>
-					{thumbnail && thumbnail.url && size >= 2 && (
+					{thumbnail && thumbnail.url && (
 						<div className={styles.thumbnail}>
 							<Placeholder
 								src={thumbnail.url}
 								height={600}
-								width={size >= 3 ? 1280 : 600}
+								width={size >= 2 ? 1280 : 600}
 								layout="responsive"
 								alt={thumbnail.alt}
 							/>

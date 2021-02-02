@@ -25,15 +25,29 @@ const News = ({ display = 5, perPage = 5 }) => {
 			revalidateOnReconnect: false,
 		}
 	);
+	const posts = data || new Array(display).fill({});
 
-	const [showing, setShowing] = useState(display);
+	const minimumVisible = posts
+		? posts.reduce(
+				(acc, cur) =>
+					acc.area + 1 * (cur.thumbnail && cur.thumbnail.url ? 2 : 1) <= 8
+						? {
+								area:
+									acc.area + 1 * (cur.thumbnail && cur.thumbnail.url ? 2 : 1),
+								noPosts: acc.noPosts + 1,
+						  }
+						: acc,
+				{ area: 4, noPosts: 1 }
+		  )
+		: 0;
+	const [showing, setShowing] = useState(
+		Math.max(display, minimumVisible.noPosts)
+	);
 	const { t } = useTranslation();
 
 	const loadMore = () => {
 		setShowing(showing + perPage);
 	};
-
-	const posts = data || new Array(display).fill({});
 
 	return (
 		<section className={`container ${styles.section}`}>
@@ -46,7 +60,7 @@ const News = ({ display = 5, perPage = 5 }) => {
 							<Article
 								key={`post-${index}`}
 								title={post.title}
-								size={index === 0 ? 3 : post.thumbnail ? 2 : 1}
+								size={index === 0 ? 2 : 1}
 								lead={post.lead}
 								href={post.slug && `/article/${post.slug}`}
 								thumbnail={post.thumbnail}
