@@ -13,5 +13,8 @@
 
 	&.padded {
 		padding: var(--gutter);
+		@include responsive($tablet-p) {
+			margin: calc(var(--gutter) * -1);
+		}
 	}
 }
