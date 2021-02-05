@@ -42,6 +42,7 @@
 }
 
 .heading {
+	user-select: none;
 	margin-top: 2rem;
 	transform: translateZ(1);
 	z-index: 3;
