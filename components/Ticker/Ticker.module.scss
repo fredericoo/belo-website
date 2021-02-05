@@ -9,6 +9,19 @@
 	transform: translateZ(0);
 }
 
+.button {
+	z-index: 2;
+	background: var(--colour__bg);
+	position: absolute;
+	-webkit-appearance: none;
+	border: 1px solid rgba(0, 0, 0, 0.1);
+	border-width: 0 1px 0 0;
+	padding: 8px 12px;
+	left: 0;
+	top: 0;
+	height: 100%;
+}
+
 .viewport {
 	overflow: hidden;
 	width: 100vw;
@@ -30,10 +43,15 @@
 		&.first {
 			transform: translate(0, 0);
 			animation: animateFirstList var(--timer) linear infinite;
+			animation-play-state: paused;
 		}
 		&.second {
 			transform: translate(100%, 0);
 			animation: animateSecondList var(--timer) linear infinite;
+			animation-play-state: paused;
+		}
+		&.play {
+			animation-play-state: running;
 		}
 	}
 	@include on-event {

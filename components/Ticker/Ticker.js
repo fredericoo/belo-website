@@ -67,6 +67,8 @@ const TickerEntry = ({ entry }) => {
 };
 
 const Ticker = ({}) => {
+	const [play, setPlay] = useState(true);
+
 	const fetcher = (url) => fetch(url).then((r) => r.json());
 	const { t } = useTranslation();
 
@@ -78,17 +80,24 @@ const Ticker = ({}) => {
 
 	return (
 		<aside className={styles.ticker}>
+			<button
+				className={`${styles.button}`}
+				type="button"
+				onClick={() => setPlay(!play)}
+			>
+				{play ? <Pause /> : <Play />}
+			</button>
 			<div
 				className={styles.viewport}
 				style={{ "--entries": data?.stocks.length || skeleton.stocks.length }}
 			>
-				<ul className={styles.first}>
+				<ul className={`${styles.first} ${play ? styles.play : ""}`}>
 					{data?.stocks.length &&
 						data.stocks.map((entry, index) => (
 							<TickerEntry key={`entry-${index}`} entry={entry} />
 						))}
 				</ul>
-				<ul className={styles.second}>
+				<ul className={`${styles.second} ${play ? styles.play : ""}`}>
 					{data?.stocks.length &&
 						data.stocks.map((entry, index) => (
 							<TickerEntry key={`entry-${index}`} entry={entry} />
@@ -103,5 +112,37 @@ const Ticker = ({}) => {
 		</aside>
 	);
 };
+
+const Play = ({ size = 16, color = "currentColor" }) => (
+	<svg
+		xmlns="http://www.w3.org/2000/svg"
+		width={size}
+		height={size}
+		viewBox="0 0 24 24"
+		fill="none"
+		stroke={color}
+		strokeWidth="1"
+		strokeLinecap="butt"
+		strokeLinejoin="arcs"
+	>
+		<polygon points="5 3 19 12 5 21 5 3"></polygon>
+	</svg>
+);
+const Pause = ({ size = 16, color = "currentColor" }) => (
+	<svg
+		xmlns="http://www.w3.org/2000/svg"
+		width={size}
+		height={size}
+		viewBox="0 0 24 24"
+		fill="none"
+		stroke={color}
+		strokeWidth="1"
+		strokeLinecap="butt"
+		strokeLinejoin="arcs"
+	>
+		<rect x="6" y="4" width="4" height="16"></rect>
+		<rect x="14" y="4" width="4" height="16"></rect>
+	</svg>
+);
 
 export default Ticker;
