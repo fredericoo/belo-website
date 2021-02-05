@@ -1,6 +1,6 @@
 import styles from "./News.module.scss";
 import useTranslation from "next-translate/useTranslation";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Button from "components/Button/Button";
 import Article from "components/Article/Article";
 
@@ -12,6 +12,7 @@ import { fetcher } from "utils/fetcher";
 
 const News = ({ display = 5, perPage = 5 }) => {
 	const { locale } = useRouter();
+	const [showing, setShowing] = useState(display);
 	const { data } = useSWR(
 		JSON.stringify({
 			docType: "article",
@@ -25,24 +26,24 @@ const News = ({ display = 5, perPage = 5 }) => {
 			revalidateOnReconnect: false,
 		}
 	);
-	const posts = data || new Array(display).fill({});
+	const posts = data || new Array(7).fill({});
+	useEffect(() => {
+		const areaCalc = posts
+			? posts.reduce(
+					(acc, cur) =>
+						acc.area + 1 * (cur.thumbnail && cur.thumbnail.url ? 2 : 1) <= 8
+							? {
+									area:
+										acc.area + 1 * (cur.thumbnail && cur.thumbnail.url ? 2 : 1),
+									noPosts: acc.noPosts + 1,
+							  }
+							: acc,
+					{ area: 4, noPosts: 1 }
+			  )
+			: 0;
+		setShowing(Math.max(display, areaCalc.noPosts));
+	}, [data]);
 
-	const minimumVisible = posts
-		? posts.reduce(
-				(acc, cur) =>
-					acc.area + 1 * (cur.thumbnail && cur.thumbnail.url ? 2 : 1) <= 8
-						? {
-								area:
-									acc.area + 1 * (cur.thumbnail && cur.thumbnail.url ? 2 : 1),
-								noPosts: acc.noPosts + 1,
-						  }
-						: acc,
-				{ area: 4, noPosts: 1 }
-		  )
-		: 0;
-	const [showing, setShowing] = useState(
-		Math.max(display, minimumVisible.noPosts)
-	);
 	const { t } = useTranslation();
 
 	const loadMore = () => {
