@@ -129,6 +129,12 @@ figcaption {
 			padding: 0.25em 0.75em;
 			border-left: 2px solid var(--colour__positive4);
 		}
+
+		strong,
+		b {
+			font-weight: 700;
+			color: var(--colour__main);
+		}
 	}
 	p:not(:last-child) {
 		margin-bottom: var(--leading);
