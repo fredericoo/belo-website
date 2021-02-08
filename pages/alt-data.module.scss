@@ -13,6 +13,11 @@
 			margin-bottom: 2rem;
 		}
 	}
+
+	.lead {
+		font-weight: 300;
+	}
+
 	.textBlock {
 		grid-column: grid-start / grid-end;
 		@include responsive($tablet-p) {

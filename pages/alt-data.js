@@ -17,7 +17,7 @@ export default function Page({ doc }) {
 						{t("common:menu.alternativeData")}
 					</h2>
 					{doc?.data && doc.data.lead && (
-						<div className={`h-3`}>
+						<div className={`h-3 ${styles.lead}`}>
 							<RichText render={doc.data.lead} />
 						</div>
 					)}
