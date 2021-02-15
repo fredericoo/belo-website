@@ -41,6 +41,26 @@
 }
 
 .type {
+	&--link {
+		padding: 4px 0;
+		position: relative;
+		&:before {
+			content: "";
+			position: absolute;
+			width: 0;
+			height: 1px;
+			background-color: var(--colour__accent);
+			bottom: 1px;
+			left: 0;
+			transition: width 0.6s var(--easing);
+		}
+		@include on-event {
+			&:before {
+				width: 100%;
+			}
+		}
+	}
+
 	&--arrow {
 		padding: 4px 0;
 		position: relative;
