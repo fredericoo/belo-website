@@ -3,7 +3,6 @@ import Layout from "components/Layout/Layout";
 import Meta from "components/Meta/Meta";
 import useTranslation from "next-translate/useTranslation";
 import { useState } from "react";
-import Link from "next/link";
 import Button from "components/Button/Button";
 
 const LoginPage = () => {
