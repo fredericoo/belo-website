@@ -3,10 +3,10 @@
 	margin: 3rem 0;
 
 	.heading {
-		margin-bottom: 3rem;
 		grid-column: grid-start / grid-end;
+		align-self: end;
 		@include responsive($tablet-p) {
-			grid-column: grid-start / col-7;
+			grid-column: grid-end / col-7;
 		}
 
 		.title {
