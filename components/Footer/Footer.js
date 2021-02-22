@@ -37,7 +37,7 @@ const Footer = () => {
 					<h3>Links</h3>
 					<ul>
 						<li className={styles.link}>
-							<Link href="/company">{t("common:menu.about")}</Link>
+							<Link href="/about">{t("common:menu.about")}</Link>
 						</li>
 						<li className={styles.link}>
 							<Link href="/contact">{t("common:menu.contact")}</Link>
