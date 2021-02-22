@@ -34,7 +34,6 @@ export default function Page({ doc }) {
 					</div>
 				)} */}
 			</header>
-			<Divider title="pew" />
 			<Slices slices={doc.data.body} />
 			<AltData perPage={9} />
 		</Layout>
