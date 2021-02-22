@@ -3,6 +3,7 @@ import BodyText from "./BodyText/BodyText";
 import Image from "./Image/Image";
 import Highlight from "./Highlight/Highlight";
 import ListOfItems from "./ListOfItems/ListOfItems";
+import Divider from "./Divider/Divider";
 
 const Slices = ({ slices }) => {
 	const outputComponents = {
@@ -11,6 +12,7 @@ const Slices = ({ slices }) => {
 		image: Image,
 		highlight: Highlight,
 		list_of_items: ListOfItems,
+		divider: Divider,
 	};
 
 	return (

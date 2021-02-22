@@ -53,7 +53,7 @@ const LoginPage = () => {
 				</form>
 				<div className={`${styles.footer} s-sm`}>
 					<Button type="arrowBack" href="/">
-						Back to Belo.re
+						Back to belo.re
 					</Button>
 					<Button type="link" href="/">
 						Forgot your password?

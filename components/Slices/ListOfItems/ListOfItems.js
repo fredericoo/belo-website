@@ -3,7 +3,6 @@ import { RichText } from "prismic-reactjs";
 import { Fragment } from "react";
 const ListOfItems = ({ primary, items }) => (
 	<section className={`${styles.section} grid grid--inner`}>
-		<hr className={styles.divider} />
 		{primary && (
 			<h2 className={`h-3 ${styles.heading}`}>
 				{RichText.asText(primary.title)}

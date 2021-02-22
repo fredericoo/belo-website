@@ -7,6 +7,7 @@ import { RichText } from "prismic-reactjs";
 import { Client } from "utils/prismicHelpers";
 import Slices from "components/Slices/Slices";
 import DecoImage from "components/DecoImage/DecoImage";
+import Divider from "components/Divider/Divider";
 
 export default function Page({ doc }) {
 	const { t } = useTranslation();
@@ -33,6 +34,7 @@ export default function Page({ doc }) {
 					</div>
 				)} */}
 			</header>
+			<Divider title="pew" />
 			<Slices slices={doc.data.body} />
 			<AltData perPage={9} />
 		</Layout>
