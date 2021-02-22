@@ -2,6 +2,7 @@ import Spacer from "./Spacer/Spacer";
 import BodyText from "./BodyText/BodyText";
 import Image from "./Image/Image";
 import Highlight from "./Highlight/Highlight";
+import ListOfItems from "./ListOfItems/ListOfItems";
 
 const Slices = ({ slices }) => {
 	const outputComponents = {
@@ -9,6 +10,7 @@ const Slices = ({ slices }) => {
 		body_text: BodyText,
 		image: Image,
 		highlight: Highlight,
+		list_of_items: ListOfItems,
 	};
 
 	return (
