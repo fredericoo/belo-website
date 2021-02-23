@@ -7,9 +7,6 @@
 		grid-row: 2;
 		margin-bottom: 3rem;
 		@include responsive($tablet-l) {
-			position: sticky;
-			align-self: start;
-			top: 100px;
 			grid-column: grid-start / col-7;
 		}
 	}
