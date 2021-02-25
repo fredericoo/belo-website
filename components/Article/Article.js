@@ -52,7 +52,7 @@ const Article = ({
 					</h4>
 					<div className={leadClass}>
 						{typeof lead === "object" ? (
-							<RichText render={lead} />
+							<RichText asText render={lead} />
 						) : (
 							<p dangerouslySetInnerHTML={{ __html: lead }} />
 						)}

@@ -64,7 +64,7 @@ export default function Post({ doc }) {
 							</div>
 						)}
 						<div className={`${styles.lead} h-3`}>
-							<RichText render={article.lead} />
+							<RichText asText render={article.lead} />
 						</div>
 
 						{article.thumbnail && article.thumbnail.url && (
