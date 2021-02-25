@@ -80,6 +80,9 @@ export default function Post({ doc }) {
 										1920px"
 									alt={article.thumbnail.alt}
 								/>
+								{article.thumbnail.alt && (
+									<p className="s-xs l-2 smcp">{article.thumbnail.alt}</p>
+								)}
 							</div>
 						)}
 					</header>
