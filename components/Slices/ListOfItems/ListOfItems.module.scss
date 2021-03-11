@@ -4,9 +4,9 @@
 	grid-column: screen-start / screen-end;
 	.heading {
 		grid-column: grid-start / grid-end;
-		grid-row: 2;
 		margin-bottom: 3rem;
 		@include responsive($tablet-l) {
+			grid-row: 2;
 			grid-column: grid-start / col-7;
 		}
 	}
