@@ -8,7 +8,9 @@
 .image {
 	grid-column: grid-start / grid-end;
 	&.fullWidth {
-		grid-column: screen-start / screen-end;
+		@include responsive($tablet-l) {
+			grid-column: col-3 / col-10;
+		}
 	}
 }
 
