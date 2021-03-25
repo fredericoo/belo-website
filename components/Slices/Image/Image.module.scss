@@ -9,7 +9,7 @@
 	grid-column: grid-start / grid-end;
 	&.fullWidth {
 		@include responsive($tablet-l) {
-			grid-column: col-3 / col-10;
+			grid-column: col-3 / col-11;
 		}
 	}
 }

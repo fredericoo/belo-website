@@ -7,7 +7,7 @@ module.exports = {
 		},
 	}),
 	images: {
-		domains: ["images.prismic.io", "placehold.it"],
+		domains: ["images.prismic.io", "placehold.it", "belo.cdn.prismic.io"],
 		deviceSizes: [320, 640, 750, 828, 1080, 1200, 1920, 2048],
 	},
 	async headers() {
