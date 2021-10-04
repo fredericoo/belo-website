@@ -4,6 +4,7 @@ import Image from "./Image/Image";
 import Highlight from "./Highlight/Highlight";
 import ListOfItems from "./ListOfItems/ListOfItems";
 import Divider from "./Divider/Divider";
+import VideoEmbed from "./VideoEmbed/VideoEmbed";
 
 const Slices = ({ slices }) => {
 	const outputComponents = {
@@ -13,6 +14,7 @@ const Slices = ({ slices }) => {
 		highlight: Highlight,
 		list_of_items: ListOfItems,
 		divider: Divider,
+		video_embed: VideoEmbed
 	};
 
 	return (
