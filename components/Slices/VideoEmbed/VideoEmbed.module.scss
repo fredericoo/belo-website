@@ -1,0 +1,31 @@
+@import "styles/abstracts/mixins";
+
+.section {
+	--bodySize: 1rem;
+	--leading: calc(1.618 * var(--bodySize));
+	margin: calc(var(--leading) * 1) 0;
+	grid-column: grid-start / grid-end;
+	@include responsive($tablet-p) {
+		grid-column: col-2 / col-12;
+		--bodySize: 1.1rem;
+	}
+	@include responsive($tablet-l) {
+		grid-column: col-3 / col-11;
+	}
+}
+
+.wrapper {
+	width: 100%;
+	height: 0px;
+	padding-bottom: calc(100% / var(--aspectRatio));
+	position: relative;
+	
+	& > * {
+		position: absolute;
+		height: 100%;
+		width: 100%;
+		top: 0;
+		left: 0;
+		object-fit: cover;
+	}
+}
