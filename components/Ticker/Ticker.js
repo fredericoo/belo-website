@@ -47,7 +47,7 @@ const TickerEntry = ({ entry }) => {
 					)}
 					&ensp;(
 					{withSeparator(
-						entry.changesPercentage,
+						entry.changesPercentage.toFixed(2),
 						t("common:separator.decimal"),
 						t("common:separator.thousands")
 					)}
