@@ -1,0 +1,59 @@
+{
+    "title": "Belo Investment Research",
+    "desc": "Extraímos valor das informações mais adequadas para melhorar o seu rendimento.",
+    "menu": {
+        "home": "Home",
+        "about": "Empresa",
+        "team": "Equipe",
+        "articles": "Artigos",
+        "contact": "Contato",
+        "alternativeData": "Dados Alternativos",
+        "news": "Notícias",
+        "world": "Mundo"
+    },
+    "locales": {
+        "pt-br": "PT",
+        "en-us": "EN"
+    },
+    "address": {
+        "line1": "R. Ouro Fino 395\/701.",
+        "line2": "Belo Horizonte MG, Brasil"
+    },
+    "separator": {
+        "decimal": ",",
+        "thousands": "."
+    },
+    "from": "fonte: ",
+    "footer": "Rodapé",
+    "login": "Log in",
+    "loadMore": "Carregar mais",
+    "toggleMenu": "Abre ou fecha o menu.",
+    "published": "Publicado em",
+    "updated": "Atualizado em",
+    "writtenBy": "Escrito por",
+    "purpose": "Propósito",
+    "type": {
+        "News": "Notícia",
+        "Article": "Artigo"
+    },
+    "cookies": {
+        "small": "Belo.re coloca pequenos arquivos (conhecidos como ‘cookies’) em seu computador para coletar informação sobre como você utiliza este site.",
+        "accept": "Aceitar",
+        "reject": "Rejeitar Cookies",
+        "info": "Mais informações",
+        "years": "anos",
+        "hours": "horas",
+        "name": "Nome",
+        "purpose": "Propósito",
+        "expires": "Expira em",
+        "analyticsAbout": "O Google Analytics guarda informação sobre:",
+        "analyticsAbout1": "como você chegou a este site",
+        "analyticsAbout2": "as páginas que você visita no Belo.re e quanto tempo passa nelas",
+        "analyticsAbout3": "em que você clica quando visita o site",
+        "analytics": "O Google Analytics faz uso dos seguintes cookies:",
+        "analyticsPurpose": "Eles nos ajudam a contar quantas pessoas visitam o belo.re ao determinar se você já visitou antes",
+        "infoHeading": "Usamos cookies para melhorar sua experiência",
+        "infoText": "Nós usamos o software Google Analytics (Universal Analytics) para coletar informações anônimas sobre como você usa nosso site. Nós fazemos isso para garantir que o site está atendendo as necessidades dos nossos usuários e para nos auxiliar a fazer melhorias ao site.",
+        "infoAside": "Nós não permitimos que o Google use ou compartilhe os dados sobre como você usa esse site..."
+    }
+}
